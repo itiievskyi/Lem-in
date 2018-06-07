@@ -17,6 +17,7 @@
 # include <string.h>
 # include <stdarg.h>
 # include <sys/types.h>
+# include "colors.h"
 # define BUFF_SIZE 1
 
 void			ft_putchar(char c);
