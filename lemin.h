@@ -14,6 +14,11 @@
 # define LEMIN_H
 # include "./libft/libft.h"
 
-
+typedef struct		s_lemin
+{
+	char			*line;
+	int				ants;
+	
+}					t_lemin;
 
 #endif
