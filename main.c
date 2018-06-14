@@ -12,19 +12,39 @@
 
 #include "lemin.h"
 
-static void	parse_map(t_lemin *lem, int ret, int index)
+static void	write_string(t_lemin *lem)
 {
-	while ((ret = get_next_line(0, &lem->line)) > 0 && ++index)
+	char	ch;
+	int		lines;
+
+	lines = 0;
+	while (read(0, &ch, 1) > 0)
 	{
-		if (index == 1)
-			lem->ants = ft_atoi(lem->line);
-		ft_printf("%s\n", lem->line);
+		lem->string[lem->index] = (char)malloc(sizeof(char));
+		lem->string[lem->index] = ch;
+		lem->index++;
+		if (ch == '\n')
+			lines++;
 	}
+	lem->string[lem->index] = (char)malloc(sizeof(char));
+	lem->string[lem->index] = '\0';
+	lem->index++;
+	if (lines < 6)
+		lem->error = 1;
+	validate(lem);
+	ft_printf("%s\n", lem->string);
+	lem->arr = ft_strsplit(lem->string, '\n');
 }
 
 static void	init_struct(t_lemin *lem)
 {
 	lem->ants = 0;
+	lem->index = 0;
+	lem->error = 0;
+	lem->string = (char*)malloc(sizeof(char));
+	lem->arr = NULL;
+	lem->rooms = 0;
+	lem->y = 0;
 }
 
 int			main(void)
@@ -33,8 +53,8 @@ int			main(void)
 
 	lem = (t_lemin*)malloc(sizeof(t_lemin));
 	init_struct(lem);
-	parse_map(lem, 0, 0);
-	ft_printf("\n");
+	write_string(lem);
+	parse(lem, 0);
 	free(lem);
 	return (0);
 }

@@ -67,9 +67,8 @@ char		**ft_strsplit(char const *s, char c)
 	count_words(s, c, p);
 	if (s == NULL)
 		return (NULL);
-	if ((char**)malloc(sizeof(char*) * (p[0] + 1)) == NULL)
+	if (!(arr = (char**)malloc(sizeof(char*) * (p[0] + 1))))
 		return (NULL);
-	arr = (char**)malloc(sizeof(char*) * (p[0] + 1));
 	write_array(s, c, p, arr);
 	if (p[5] == -1)
 		return (NULL);

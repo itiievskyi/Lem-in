@@ -25,6 +25,9 @@ HEADER = lemin.h
 LIB = libft/libft.a
 
 SOURCES =	main.c\
+			validate.c\
+			parse.c\
+			slists.c\
 
 SRCS = $(addprefix $(DIR_S)/,$(SOURCES))
 

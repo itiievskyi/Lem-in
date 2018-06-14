@@ -14,11 +14,30 @@
 # define LEMIN_H
 # include "./libft/libft.h"
 
+typedef struct		s_slist
+{
+	void			*room;
+	int				num;
+	struct s_slist	*next;
+}					t_slist;
 typedef struct		s_lemin
 {
+	char			*string;
 	char			*line;
 	int				ants;
-	
+	int				index;
+	int				error;
+	char			**arr;
+	int				rooms;
+	int				y;
+	char			*start;
+	char			*end;
+	t_slist			*list;
 }					t_lemin;
+void				validate(t_lemin *lem);
+void				parse(t_lemin *lem, int i);
+t_slist				*ft_slist_new(char *room, int num);
+void				ft_slist_pushback(t_slist **begin, void *room, int num);
+void				ft_slist_pushfront(t_slist **begin, void *room, int num);
 
 #endif
