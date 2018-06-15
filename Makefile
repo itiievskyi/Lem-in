@@ -28,6 +28,7 @@ SOURCES =	main.c\
 			validate.c\
 			parse.c\
 			slists.c\
+			solve.c\
 
 SRCS = $(addprefix $(DIR_S)/,$(SOURCES))
 

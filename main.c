@@ -45,6 +45,9 @@ static void	init_struct(t_lemin *lem)
 	lem->arr = NULL;
 	lem->rooms = 0;
 	lem->y = 0;
+	lem->done = 0;
+	lem->iter = 0;
+	ft_bzero(lem->ways, sizeof(lem->ways));
 }
 
 int			main(void)
@@ -55,6 +58,25 @@ int			main(void)
 	init_struct(lem);
 	write_string(lem);
 	parse(lem, 0);
+	while (!lem->done)
+	{
+		bfs(lem, 0);
+		if (lem->done)
+			break ;
+		find_way(lem);
+		lem->iter += 1;
+	}
+	int x = -1;
+	while (lem->ways[++x])
+	{
+		ft_printf("WAY # %d\n", x);
+		t_slist *w = lem->ways[x];
+		while (w)
+		{
+			ft_printf("room = \'%s\', its index = %d, is used? = %d\n", w->room, w->num, w->used);
+			w = w->next;
+		}
+	}
 	free(lem);
 	return (0);
 }

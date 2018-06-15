@@ -12,18 +12,23 @@
 
 #include "lemin.h"
 
-static void	mark_room(t_lemin *lem, char *str, int num)
+static void	mark_room(t_lemin *lem, char *str, t_slist *temp)
 {
 	t_slist		*t;
 
 	t = lem->list;
-	while (t)
+	while (t && !temp->used)
 	{
-		if (!ft_strcmp(t->room, str) && t->num == -1)
-			t->num = num + 1;
+		if (ft_strcmp(temp->room, lem->end))
+		{
+			if (!ft_strcmp(t->room, str) && t->num == -1)
+				t->num = temp->num + 1;
+		}
+		else if (!ft_strcmp(t->room, str) && temp->num > t->num + 1
+			&& t->num > -1 && !t->used)
+			temp->num = t->num + 1;
 		t = t->next;
 	}
-//	free(str);
 }
 
 static char	*get_pair(char *str, char *find, int a)
@@ -33,41 +38,43 @@ static char	*get_pair(char *str, char *find, int a)
 
 	len = ft_strlen(find);
 	pair = NULL;
-//	ft_printf("*compare # 1 = %d\t", ft_strncmp(str, find, len));
 	if (!ft_strncmp(str, find, len) && str[len] == '-')
 		pair = ft_strsub(str, len + 1, ft_strlen(str) - len - 1);
 	else
 	{
 		while (str[a] != '\0' && str[a] != '-')
 			a++;
-//		ft_printf("*compare # 2 = %d\t", ft_strcmp(&str[a + 1], find));
 		if (!ft_strcmp(&str[a + 1], find))
 			pair = ft_strsub(str, 0, ft_strlen(str) - a - 1);
 	}
-//	if (pair)
-//		ft_printf("*find = %s, *pair = %s\n", find, pair);
-//	if (!pair)
-//		ft_printf("*find = %s, *pair = (null)\n", find, pair);
 	return(pair);
 }
 
-static void	bfs(t_lemin *lem, int i)
+void		bfs(t_lemin *lem, int i)
 {
-	t_slist		*t;
-	char		*temp;
+	t_slist		*temp;
+	char		*str;
 
-	t = lem->list;
-	while (ft_strcmp(t->room, lem->end))
+	temp = lem->list;
+	while (temp)
 	{
-		i = 0;
-		while (lem->arr[lem->y + i])
+		if (!temp->used)
 		{
-			if ((temp = get_pair(lem->arr[lem->y + i], t->room, 0)))
-				mark_room(lem, temp, t->num);
-			i++;
+			i = 0;
+			while (lem->arr[lem->y + i])
+			{
+				if ((str = get_pair(lem->arr[lem->y + i], temp->room, 0)))
+					mark_room(lem, str, temp);
+				i++;
+			}
 		}
-		t = t->next;
+		temp = temp->next;
 	}
+	temp = lem->list;
+	while (ft_strcmp(temp->room, lem->end))
+		temp = temp->next;
+	if (temp->num == lem->rooms - 1 && lem->iter > 0)
+		lem->done = 1;
 }
 
 void		parse(t_lemin *lem, int i)
@@ -95,15 +102,6 @@ void		parse(t_lemin *lem, int i)
 	}
 	ft_slist_pushfront(&lem->list, lem->start, 0);
 	ft_slist_pushback(&lem->list, lem->end, lem->rooms - 1);
-	bfs(lem, 0);
-
-	t_slist *t;
-	t = lem->list;
-	while (t)
-	{
-		ft_printf("room = \'%s\', its index = %d\n", t->room, t->num);
-		t = t->next;
-	}
 }
 
 /*

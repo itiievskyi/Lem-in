@@ -19,11 +19,12 @@ t_slist	*ft_slist_new(char *room, int num)
 	list = (t_slist*)malloc(sizeof(t_slist));
 	list->room = ft_strdup(room);
 	list->num = num;
+	list->used = 0;
 	list->next = NULL;
 	return (list);
 }
 
-void	ft_slist_pushback(t_slist **begin, void *room, int num)
+void	ft_slist_pushback(t_slist **begin, char *room, int num)
 {
 	t_slist *temp;
 
@@ -38,7 +39,7 @@ void	ft_slist_pushback(t_slist **begin, void *room, int num)
 		*begin = ft_slist_new(room, num);
 }
 
-void	ft_slist_pushfront(t_slist **begin, void *room, int num)
+void	ft_slist_pushfront(t_slist **begin, char *room, int num)
 {
 	t_slist *temp;
 
