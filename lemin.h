@@ -45,5 +45,7 @@ void				ft_slist_pushback(t_slist **begin, char *room, int num);
 void				ft_slist_pushfront(t_slist **begin, char *room, int num);
 void				bfs(t_lemin *lem, int i);
 void				find_way(t_lemin *lem);
+char				*get_pair(char *str, char *find, int a);
+
 
 #endif

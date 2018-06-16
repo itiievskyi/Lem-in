@@ -12,6 +12,33 @@
 
 #include "lemin.h"
 
+static int	near(char *two, char *one, t_lemin *lem)
+{
+	char		*str;
+	char		*rev;
+	char		*temp;
+	int			i;
+
+	temp = ft_strjoin(one, "-");
+	str = ft_strjoin(temp, two);
+	free(temp);
+	temp = ft_strjoin(two, "-");
+	rev = ft_strjoin(temp, one);
+	free(temp);
+	i = -1;
+	while (lem->arr[lem->y + ++i])
+	{
+		if (!ft_strcmp(lem->arr[lem->y + i], str) ||
+			!ft_strcmp(lem->arr[lem->y + i], rev))
+			{
+				free(str);
+				free(rev);
+				return(1);
+			}
+	}
+	return(0);
+}
+
 static void	reinit_list(t_lemin *lem)
 {
 	t_slist		*temp;
@@ -45,7 +72,8 @@ void		find_way(t_lemin *lem)
 		while (temp)
 		{
 			if (temp->num == a && a >= 0 && !temp->used)
-				break ;
+				if (near(temp->room, (lem->ways[lem->iter])->room, lem))
+					break ;
 			temp = temp->next;
 		}
 		ft_slist_pushfront(&lem->ways[lem->iter], temp->room, temp->num);
