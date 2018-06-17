@@ -77,6 +77,7 @@ int			main(void)
 			w = w->next;
 		}
 	}
+	set_turns(lem);
 	free(lem);
 	return (0);
 }

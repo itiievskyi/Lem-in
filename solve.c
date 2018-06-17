@@ -12,6 +12,142 @@
 
 #include "lemin.h"
 
+static void	print_turn(t_lemin *lem)
+{
+	int			ant;
+	t_slist		*temp;
+	int			way;
+	int			stop;
+
+	ant = 1;
+	while (ant < lem->ants + 1)
+	{
+		stop = 0;
+		way = 0;
+		while (lem->ways[way] && !stop)
+		{
+			temp = lem->ways[way];
+			while (temp && !stop)
+			{
+				if (temp->ant == ant && temp->num != 0)
+				{
+					ft_printf("L%d-%s ", ant, temp->room);
+					stop = 1;
+				}
+				temp = temp->next;
+			}
+			way++;
+		}
+		ant++;
+	}
+}
+
+static int	move_ants(t_lemin *lem)
+{
+	t_slist		*temp;
+	int			way;
+	int			x;
+	int			res;
+
+	way = 0;
+	res = 0;
+	while (lem->ways[way])
+	{
+		temp = lem->ways[way];
+		x = ft_slist_length(temp) - 1;
+//		ft_printf("x = %d\n", x);
+		while (x >= 0)
+		{
+			while (temp->num < x)
+				temp = temp->next;
+//			ft_printf("way = %d, index = %d\n", way, temp->num);
+			if (temp->next)
+			{
+				temp->next->ant = temp->ant;
+				temp->ant = 0;
+			}
+			x--;
+			temp = lem->ways[way];
+		}
+//		temp = lem->ways[way];
+		while (temp->next)
+		{
+//			if (temp->ant)
+			res += temp->ant;
+			temp = temp->next;
+		}
+		way++;
+	}
+//	ft_printf("res = %d\n", res);
+	return(res);
+}
+
+static void	print_result(t_lemin *lem, int turns[])
+{
+	int			ant;
+	int			on;
+	int			way;
+
+	ant = 1;
+	on = 1;
+	while (on)
+	{
+//		ft_printf("PRINT\n");
+		way = 0;
+		while (lem->ways[way])
+		{
+			if (turns[way])
+			{
+//				ft_printf("AAAAAAAAAAA\n");
+				lem->ways[way]->ant = ant;
+				ant += 1;
+				turns[way] -= 1;
+			}
+			way++;
+		}
+		if (move_ants(lem) > 0)
+			on = 1;
+		else
+			on = 0;
+		print_turn(lem);
+		ft_printf("\n");
+	}
+}
+
+void		set_turns(t_lemin *lem)
+{
+	int		turns[lem->iter];
+	int		way;
+	int		max;
+	int		ants;
+
+	ants = lem->ants;
+	max = 1;
+	ft_bzero(turns, sizeof(turns));
+	while (ants)
+	{
+		way = 0;
+		while (lem->ways[way] && ants)
+		{
+			if (ft_slist_length(lem->ways[way]) <= max)
+			{
+				ants -= 1;
+				turns[way] += 1;
+			}
+			way++;
+		}
+		max++;
+	}
+	ft_printf("TURNS\n");
+	int a = 0;
+	while (a < lem->iter)
+	{
+		ft_printf("way #%d - %d ants\n", a + 1, turns[a]);
+		a++;
+	}
+	print_result(lem, turns);
+}
+
 static int	near(char *two, char *one, t_lemin *lem)
 {
 	char		*str;

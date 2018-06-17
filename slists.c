@@ -12,6 +12,21 @@
 
 #include "lemin.h"
 
+int		ft_slist_length(t_slist *list)
+{
+	int		len;
+	t_slist *temp;
+
+	temp = list;
+	len = 0;
+	while (temp)
+	{
+		len++;
+		temp = temp->next;
+	}
+	return (len);
+}
+
 t_slist	*ft_slist_new(char *room, int num)
 {
 	t_slist	*list;
@@ -20,6 +35,7 @@ t_slist	*ft_slist_new(char *room, int num)
 	list->room = ft_strdup(room);
 	list->num = num;
 	list->used = 0;
+	list->ant = 0;
 	list->next = NULL;
 	return (list);
 }

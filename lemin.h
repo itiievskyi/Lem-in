@@ -19,6 +19,7 @@ typedef struct		s_slist
 	void			*room;
 	int				num;
 	int				used;
+	int				ant;
 	struct s_slist	*next;
 }					t_slist;
 typedef struct		s_lemin
@@ -46,6 +47,7 @@ void				ft_slist_pushfront(t_slist **begin, char *room, int num);
 void				bfs(t_lemin *lem, int i);
 void				find_way(t_lemin *lem);
 char				*get_pair(char *str, char *find, int a);
-
+void				set_turns(t_lemin *lem);
+int					ft_slist_length(t_slist *list);
 
 #endif
