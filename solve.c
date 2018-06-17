@@ -138,14 +138,14 @@ void		set_turns(t_lemin *lem)
 		}
 		max++;
 	}
-	ft_printf("TURNS\n");
+/*	ft_printf("TURNS\n");
 	int a = 0;
 	while (a < lem->iter)
 	{
 		ft_printf("way #%d - %d ants\n", a + 1, turns[a]);
 		a++;
 	}
-	print_result(lem, turns);
+*/	print_result(lem, turns);
 }
 
 static int	near(char *two, char *one, t_lemin *lem)
@@ -172,6 +172,8 @@ static int	near(char *two, char *one, t_lemin *lem)
 				return(1);
 			}
 	}
+	free(str);
+	free(rev);
 	return(0);
 }
 

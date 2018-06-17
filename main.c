@@ -20,13 +20,11 @@ static void	write_string(t_lemin *lem)
 	lines = 0;
 	while (read(0, &ch, 1) > 0)
 	{
-		lem->string[lem->index] = (char)malloc(sizeof(char));
 		lem->string[lem->index] = ch;
 		lem->index++;
 		if (ch == '\n')
 			lines++;
 	}
-	lem->string[lem->index] = (char)malloc(sizeof(char));
 	lem->string[lem->index] = '\0';
 	lem->index++;
 	if (lines < 6)
@@ -41,7 +39,7 @@ static void	init_struct(t_lemin *lem)
 	lem->ants = 0;
 	lem->index = 0;
 	lem->error = 0;
-	lem->string = (char*)malloc(sizeof(char));
+	lem->string = (char*)malloc(sizeof(char) * 1000000);
 	lem->arr = NULL;
 	lem->rooms = 0;
 	lem->y = 0;
@@ -66,18 +64,8 @@ int			main(void)
 		find_way(lem);
 		lem->iter += 1;
 	}
-	int x = -1;
-	while (lem->ways[++x])
-	{
-		ft_printf("WAY # %d\n", x);
-		t_slist *w = lem->ways[x];
-		while (w)
-		{
-			ft_printf("room = \'%s\', its index = %d, is used? = %d\n", w->room, w->num, w->used);
-			w = w->next;
-		}
-	}
 	set_turns(lem);
-	free(lem);
+	clean_all(lem, -1, 0);
+	system("leaks lem-in");
 	return (0);
 }

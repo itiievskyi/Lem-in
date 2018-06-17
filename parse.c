@@ -29,14 +29,7 @@ static void	mark_room(t_lemin *lem, char *str, t_slist *temp)
 			temp->num = t->num + 1;
 		t = t->next;
 	}
-	ft_printf("LIST\n");
-	t_slist *z;
-	z = lem->list;
-	while (z)
-	{
-		ft_printf("room = \'%s\', its index = %d, is used? = %d\n", z->room, z->num, z->used);
-		z = z->next;
-	}
+	free(str);
 }
 
 char		*get_pair(char *str, char *find, int a)
@@ -72,7 +65,6 @@ void		bfs(t_lemin *lem, int i)
 		{
 			if (!temp->used && temp->num == index)
 			{
-				ft_printf("Checking room %s\n", temp->room);
 				i = 0;
 				while (lem->arr[lem->y + i])
 				{

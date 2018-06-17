@@ -49,5 +49,6 @@ void				find_way(t_lemin *lem);
 char				*get_pair(char *str, char *find, int a);
 void				set_turns(t_lemin *lem);
 int					ft_slist_length(t_slist *list);
+void				clean_all(t_lemin *lem, int way, int x);
 
 #endif
