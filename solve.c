@@ -18,8 +18,10 @@ static void	print_turn(t_lemin *lem)
 	t_slist		*temp;
 	int			way;
 	int			stop;
+	int			count;
 
 	ant = 1;
+	count = 0;
 	while (ant < lem->ants + 1)
 	{
 		stop = 0;
@@ -31,7 +33,10 @@ static void	print_turn(t_lemin *lem)
 			{
 				if (temp->ant == ant && temp->num != 0)
 				{
-					ft_printf("L%d-%s ", ant, temp->room);
+					if (++count > 1)
+						ft_printf(" L%d-%s", ant, temp->room);
+					else
+						ft_printf("L%d-%s", ant, temp->room);
 					stop = 1;
 				}
 				temp = temp->next;
@@ -138,14 +143,8 @@ void		set_turns(t_lemin *lem)
 		}
 		max++;
 	}
-/*	ft_printf("TURNS\n");
-	int a = 0;
-	while (a < lem->iter)
-	{
-		ft_printf("way #%d - %d ants\n", a + 1, turns[a]);
-		a++;
-	}
-*/	print_result(lem, turns);
+	ft_printf("%s\n", lem->string);
+	print_result(lem, turns);
 }
 
 static int	near(char *two, char *one, t_lemin *lem)

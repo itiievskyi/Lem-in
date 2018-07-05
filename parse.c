@@ -82,6 +82,8 @@ void		bfs(t_lemin *lem, int i)
 		temp = temp->next;
 	if (temp->num == lem->rooms - 1 && lem->iter > 0)
 		lem->done = 1;
+//	else
+//		error_exit(lem, 0);
 }
 
 void		parse(t_lemin *lem, int i)

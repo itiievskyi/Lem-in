@@ -12,11 +12,25 @@
 
 #include "lemin.h"
 
+static void check_lines(t_lemin *lem, int i)
+{
+	while (lem->arr[i])
+	{
+		if ((lem->arr[i])[0] == ' ')
+			error_exit(lem, 0);
+		i++;
+	}
+}
+
 void		validate(t_lemin *lem)
 {
+	int i;
+
+	i = 0;
 	if (!lem)
-	{
-		ft_printf("Error\n");
-		exit(-1);
-	}
+		error_exit(lem, 0);
+	while ((lem->arr[0])[i] != '\0')
+		if (!ft_isdigit(lem->arr[0][i++]) || ft_atoi(lem->arr[0]) == 0)
+			error_exit(lem, 0);
+	check_lines(lem, 0);
 }

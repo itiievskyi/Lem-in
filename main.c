@@ -27,11 +27,10 @@ static void	write_string(t_lemin *lem)
 	}
 	lem->string[lem->index] = '\0';
 	lem->index++;
-	if (lines < 6)
-		lem->error = 1;
-	validate(lem);
-	ft_printf("%s\n", lem->string);
+//	if (lines < 6)
+//		error_exit(lem, 0);
 	lem->arr = ft_strsplit(lem->string, '\n');
+	validate(lem);
 }
 
 static void	init_struct(t_lemin *lem)
@@ -66,6 +65,6 @@ int			main(void)
 	}
 	set_turns(lem);
 	clean_all(lem, -1, 0);
-	system("leaks lem-in");
+//	system("leaks lem-in");
 	return (0);
 }
