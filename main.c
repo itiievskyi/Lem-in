@@ -21,14 +21,16 @@ static void	write_string(t_lemin *lem)
 	while (read(0, &ch, 1) > 0)
 	{
 		lem->string[lem->index] = ch;
-		lem->index++;
 		if (ch == '\n')
+		{
+			if (lem->string[lem->index - 1] == '\n')
+				break ;
 			lines++;
+		}
+		lem->index++;
 	}
 	lem->string[lem->index] = '\0';
 	lem->index++;
-//	if (lines < 6)
-//		error_exit(lem, 0);
 	lem->arr = ft_strsplit(lem->string, '\n');
 	validate(lem);
 }
@@ -38,7 +40,7 @@ static void	init_struct(t_lemin *lem)
 	lem->ants = 0;
 	lem->index = 0;
 	lem->error = 0;
-	lem->string = (char*)malloc(sizeof(char) * 10000000);
+	lem->string = (char*)malloc(sizeof(char) * 1000000);
 	lem->arr = NULL;
 	lem->rooms = 0;
 	lem->y = 0;

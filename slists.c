@@ -40,7 +40,7 @@ t_slist	*ft_slist_new(char *room, int num)
 	return (list);
 }
 
-void	ft_slist_pushback(t_slist **begin, char *room, int num)
+int		ft_slist_pushback(t_slist **begin, char *room, int num)
 {
 	t_slist *temp;
 
@@ -51,8 +51,11 @@ void	ft_slist_pushback(t_slist **begin, char *room, int num)
 			temp = temp->next;
 		temp->next = ft_slist_new(room, num);
 	}
-	else
+	else if (room)
 		*begin = ft_slist_new(room, num);
+	else
+		return(0);
+	return (1);
 }
 
 void	ft_slist_pushfront(t_slist **begin, char *room, int num)
@@ -66,6 +69,6 @@ void	ft_slist_pushfront(t_slist **begin, char *room, int num)
 		temp->next = *begin;
 		*begin = temp;
 	}
-	else
+	else if (room)
 		*begin = ft_slist_new(room, num);
 }

@@ -60,12 +60,10 @@ static int	move_ants(t_lemin *lem)
 	{
 		temp = lem->ways[way];
 		x = ft_slist_length(temp) - 1;
-//		ft_printf("x = %d\n", x);
 		while (x >= 0)
 		{
 			while (temp->num < x)
 				temp = temp->next;
-//			ft_printf("way = %d, index = %d\n", way, temp->num);
 			if (temp->next)
 			{
 				temp->next->ant = temp->ant;
@@ -74,16 +72,13 @@ static int	move_ants(t_lemin *lem)
 			x--;
 			temp = lem->ways[way];
 		}
-//		temp = lem->ways[way];
 		while (temp->next)
 		{
-//			if (temp->ant)
 			res += temp->ant;
 			temp = temp->next;
 		}
 		way++;
 	}
-//	ft_printf("res = %d\n", res);
 	return(res);
 }
 
@@ -97,13 +92,11 @@ static void	print_result(t_lemin *lem, int turns[])
 	on = 1;
 	while (on)
 	{
-//		ft_printf("PRINT\n");
 		way = 0;
 		while (lem->ways[way])
 		{
 			if (turns[way])
 			{
-//				ft_printf("AAAAAAAAAAA\n");
 				lem->ways[way]->ant = ant;
 				ant += 1;
 				turns[way] -= 1;
@@ -213,6 +206,8 @@ void		find_way(t_lemin *lem)
 					break ;
 			temp = temp->next;
 		}
+		if (!temp)
+			error_exit(lem, 0);
 		ft_slist_pushfront(&lem->ways[lem->iter], temp->room, temp->num);
 		a -= 1;
 		if (ft_strcmp(temp->room, lem->start))
@@ -220,43 +215,3 @@ void		find_way(t_lemin *lem)
 	}
 	reinit_list(lem);
 }
-
-/*
-	t_slist *t;
-	t = lem->list;
-	while (t)
-	{
-		ft_printf("room = \'%s\', its index = %d\n", t->room, t->num);
-		t = t->next;
-	}
-*/
-//	create_rooms_list(lem);
-//	ft_printf("start = %s\n", lem->start);
-//	ft_printf("end = %s\n", lem->end);
-//	ft_printf("string = %s\n", lem->arr[4]);
-//	ft_printf("word = %s\n", get_word(lem->arr[4], 3));
-
-
-/* ============= PRINT CHECK ============= */
-/*
-	ft_printf("WAY\n");
-	t_slist *w;
-
-	w = lem->ways[lem->iter];
-	ft_printf("lem->iter = %d\n", lem->iter);
-	while (w)
-	{
-		ft_printf("room = \'%s\', its index = %d, is used? = %d\n", w->room, w->num, w->used);
-		w = w->next;
-	}
-
-	ft_printf("LIST\n");
-	t_slist *t;
-	t = lem->list;
-	while (t)
-	{
-		ft_printf("room = \'%s\', its index = %d, is used? = %d\n", t->room, t->num, t->used);
-		t = t->next;
-	}
-*/
-/* ============= PRINT CHECK ============= */

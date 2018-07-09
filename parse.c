@@ -82,8 +82,7 @@ void		bfs(t_lemin *lem, int i)
 		temp = temp->next;
 	if (temp->num == lem->rooms - 1 && lem->iter > 0)
 		lem->done = 1;
-	if (lem->done == 1 && !lem->ways[0])
-		error_exit(lem, 0);
+//	check_bfs(lem, 0);
 }
 
 void		parse(t_lemin *lem, int i)
@@ -98,7 +97,7 @@ void		parse(t_lemin *lem, int i)
 		if (!ft_strcmp(lem->arr[i], "##end"))
 			lem->end = get_word(lem->arr[i + 1], 1);
 	}
-	while (++(lem->y) < i)
+	while (++(lem->y) < i && lem->start && lem->end)
 	{
 		if (ft_strchr(lem->arr[lem->y], ' '))
 		{
@@ -109,21 +108,7 @@ void		parse(t_lemin *lem, int i)
 			free(temp);
 		}
 	}
+	check_parse(lem, 0);
 	ft_slist_pushfront(&lem->list, lem->start, 0);
 	ft_slist_pushback(&lem->list, lem->end, lem->rooms - 1);
 }
-
-/*
-	t_slist *t;
-	t = lem->list;
-	while (t)
-	{
-		ft_printf("room = \'%s\', its index = %d\n", t->room, t->num);
-		t = t->next;
-	}
-*/
-//	create_rooms_list(lem);
-//	ft_printf("start = %s\n", lem->start);
-//	ft_printf("end = %s\n", lem->end);
-//	ft_printf("string = %s\n", lem->arr[4]);
-//	ft_printf("word = %s\n", get_word(lem->arr[4], 3));
