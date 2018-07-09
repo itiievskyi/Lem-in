@@ -38,7 +38,7 @@ static void	init_struct(t_lemin *lem)
 	lem->ants = 0;
 	lem->index = 0;
 	lem->error = 0;
-	lem->string = (char*)malloc(sizeof(char) * 1000000);
+	lem->string = (char*)malloc(sizeof(char) * 10000000);
 	lem->arr = NULL;
 	lem->rooms = 0;
 	lem->y = 0;

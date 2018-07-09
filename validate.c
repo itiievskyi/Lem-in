@@ -17,9 +17,17 @@ static void check_lines(t_lemin *lem, int i)
 	while (lem->arr[i])
 	{
 		if ((lem->arr[i])[0] == ' ')
-			error_exit(lem, 0);
+		{
+			cut_array(lem, i);
+			break ;
+		}
 		i++;
 	}
+//	i = 0;
+//	while (lem->arr[i])
+//		i++;
+	if (i < 6)
+		error_exit(lem, 0);
 }
 
 void		validate(t_lemin *lem)

@@ -51,5 +51,5 @@ void				set_turns(t_lemin *lem);
 int					ft_slist_length(t_slist *list);
 void				clean_all(t_lemin *lem, int way, int x);
 void				error_exit(t_lemin *lem, int x);
-
+void				cut_array(t_lemin *lem, int x);
 #endif

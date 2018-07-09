@@ -44,22 +44,28 @@ void		clean_all(t_lemin *lem, int way, int x)
 
 void		error_exit(t_lemin *lem, int x)
 {
-	t_slist		*temp;
-
+//	t_slist		*temp;
+	x = 0;
 	free(lem->string);
-	free(lem->line);
-	free(lem->start);
-	free(lem->end);
-	while (lem->arr[x])
-		free(lem->arr[x++]);
-	free(lem->arr);
-	while (lem->list)
-	{
-		temp = lem->list;
-		lem->list = lem->list->next;
-		free(temp->room);
-		free(temp);
-	}
+//	free(lem->line);
+//	free(lem->start);
+//	free(lem->end);
+//	while (lem->arr[x])
+//		free(lem->arr[x++]);
+//	free(lem->arr);
+//	while (lem->list)
+//	{
+//		temp = lem->list;
+//		lem->list = lem->list->next;
+//		free(temp->room);
+//		free(temp);
+//	}
 	ft_printf("ERROR\n");
 	exit(-1);
+}
+
+void		cut_array(t_lemin *lem, int x)
+{
+	while (lem->arr[x])
+		free(lem->arr[x++]);
 }
