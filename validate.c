@@ -12,6 +12,59 @@
 
 #include "lemin.h"
 
+static void check_coos(t_lemin *lem, int i, int x)
+{
+	char	*s1;
+	char	*s2;
+
+	while (lem->arr[++i])
+	{
+		if (lem->arr[i][0] != '#' && (s1 = (ft_strchr(lem->arr[i], ' '))))
+		{
+			++s1;
+			x = 0;
+			while (lem->arr[++x] && x < i)
+			{
+				if (lem->arr[x][0] != '#' &&
+				(s2 = (ft_strchr(lem->arr[x], ' '))))
+				{
+					++s2;
+					if (ft_strequ(s1, s2))
+						cut_array(lem, i);
+				}
+			}
+
+		}
+	}
+}
+
+static void check_pipes(t_lemin *lem, int i, int x)
+{
+	char	*s1;
+	char	*s2;
+
+	while (lem->arr[++i])
+	{
+		if (lem->arr[i][0] != '#' && ft_words_count(lem->arr[i]) == 1 &&
+			(s1 = ft_strchr(lem->arr[i], '-')))
+		{
+			++s1;
+			x = 0;
+			while (lem->arr[++x] && x < i)
+			{
+				if (lem->arr[x][0] != '#' &&
+				(s2 = (ft_strchr(lem->arr[x], ' '))))
+				{
+					++s2;
+					if (ft_strequ(s1, s2))
+						cut_array(lem, i);
+				}
+			}
+
+		}
+	}
+}
+
 static void check_lines(t_lemin *lem, int i)
 {
 	int		words;
@@ -50,6 +103,8 @@ void		validate(t_lemin *lem)
 		if (!ft_isdigit(lem->arr[0][i++]) || ft_atoi(lem->arr[0]) == 0)
 			error_exit(lem, 0);
 	check_lines(lem, 0);
+	check_coos(lem, 0, 0);
+	check_pipes(lem, 0, 0);
 }
 
 void		check_parse(t_lemin *lem, int i)
@@ -76,16 +131,4 @@ void		check_parse(t_lemin *lem, int i)
 				error_exit(lem, 0);
 		}
 	}
-}
-
-void		check_bfs(t_lemin *lem, int i)
-{
-	t_slist		*temp;
-
-	i = 1;
-	temp = lem->list;
-	if (lem->done == 1 && !lem->ways[0])
-		error_exit(lem, 0);
-	while (ft_strcmp(temp->room, lem->end))
-		temp = temp->next;
 }

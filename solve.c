@@ -112,6 +112,25 @@ static void	print_result(t_lemin *lem, int turns[])
 	}
 }
 
+static void print_str(t_lemin *lem, int i)
+{
+	char	**arr;
+
+	arr = ft_strsplit(lem->string, '\n');
+	while (arr[i])
+	{
+		if (!ft_strcmp(arr[i], "##start") || !ft_strcmp(arr[i], "##end") ||
+			!(arr[i][0] == '#' && arr[i][1] == '#'))
+			ft_printf("%s\n", arr[i]);
+		i++;
+	}
+	i = 0;
+	while (arr[i])
+		free(arr[i++]);
+	free(arr);
+	ft_printf("\n");
+}
+
 void		set_turns(t_lemin *lem)
 {
 	int		turns[lem->iter];
@@ -136,7 +155,7 @@ void		set_turns(t_lemin *lem)
 		}
 		max++;
 	}
-	ft_printf("%s\n", lem->string);
+	print_str(lem, 0);
 	print_result(lem, turns);
 }
 
