@@ -44,7 +44,7 @@ void				parse(t_lemin *lem, int i);
 t_slist				*ft_slist_new(char *room, int num);
 int					ft_slist_pushback(t_slist **begin, char *room, int num);
 void				ft_slist_pushfront(t_slist **begin, char *room, int num);
-void				bfs(t_lemin *lem, int i);
+void				bfs(t_lemin *lem, int i, int index);
 void				find_way(t_lemin *lem);
 char				*get_pair(char *str, char *find, int a);
 void				set_turns(t_lemin *lem);
@@ -54,4 +54,5 @@ void				error_exit(t_lemin *lem, int x);
 void				cut_array(t_lemin *lem, int x);
 void				check_parse(t_lemin *lem, int i);
 void				check_bfs(t_lemin *lem, int i);
+void				clean_array(char **arr);
 #endif

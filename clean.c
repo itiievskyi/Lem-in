@@ -23,9 +23,8 @@ void		clean_all(t_lemin *lem, int way, int x)
 	while (lem->arr[x])
 		free(lem->arr[x++]);
 	free(lem->arr);
-	while (lem->list)
+	while ((temp = lem->list))
 	{
-		temp = lem->list;
 		lem->list = lem->list->next;
 		free(temp->room);
 		free(temp);
@@ -44,22 +43,28 @@ void		clean_all(t_lemin *lem, int way, int x)
 
 void		error_exit(t_lemin *lem, int x)
 {
-//	t_slist		*temp;
+	t_slist		*temp;
+
+//	int a = 0;
+//	while (lem->arr[a]) {
+//		ft_printf("%s\n", lem->arr[a++]);
+//	}
 	x = 0;
 	free(lem->string);
-//	free(lem->line);
-//	free(lem->start);
-//	free(lem->end);
-//	while (lem->arr[x])
-//		free(lem->arr[x++]);
-//	free(lem->arr);
-//	while (lem->list)
-//	{
-//		temp = lem->list;
-//		lem->list = lem->list->next;
-//		free(temp->room);
-//		free(temp);
-//	}
+	if (lem->start)
+		free(lem->start);
+	if (lem->line)
+		free(lem->line);
+	if (lem->end)
+		free(lem->end);
+	clean_array(lem->arr);
+	while (lem->list)
+	{
+		temp = lem->list;
+		lem->list = lem->list->next;
+		free(temp->room);
+		free(temp);
+	}
 	ft_printf("ERROR\n");
 	exit(-1);
 }
@@ -67,5 +72,21 @@ void		error_exit(t_lemin *lem, int x)
 void		cut_array(t_lemin *lem, int x)
 {
 	while (lem->arr[x])
-		free(lem->arr[x++]);
+	{
+		free(lem->arr[x]);
+		lem->arr[x++] = NULL;
+	}
+}
+
+void		clean_array(char **arr)
+{
+	int a;
+
+	a = -1;
+	if (arr)
+	{
+		while (arr[++a])
+			free(arr[a]);
+		free(arr);
+	}
 }

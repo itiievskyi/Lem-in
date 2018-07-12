@@ -35,29 +35,24 @@ static void	mark_room(t_lemin *lem, char *str, t_slist *temp)
 char		*get_pair(char *str, char *find, int a)
 {
 	char	*pair;
-	int		len;
+	char	**arr;
 
-	len = ft_strlen(find);
+	a = 1;
 	pair = NULL;
-	if (!ft_strncmp(str, find, len) && str[len] == '-')
-		pair = ft_strsub(str, len + 1, ft_strlen(str) - len - 1);
-	else
-	{
-		while (str[a] != '\0' && str[a] != '-')
-			a++;
-		if (!ft_strcmp(&str[a + 1], find))
-			pair = ft_strsub(str, 0, ft_strlen(str) - a - 1);
-	}
-	return(pair);
+	arr = ft_strsplit(str, '-');
+	if (ft_strequ(arr[0], find))
+		pair = ft_strdup(arr[1]);
+	else if (ft_strequ(arr[1], find))
+		pair = ft_strdup(arr[0]);
+	clean_array(arr);
+	return (pair);
 }
 
-void		bfs(t_lemin *lem, int i)
+void		bfs(t_lemin *lem, int i, int index)
 {
 	t_slist		*temp;
 	char		*str;
-	int			index;
 
-	index = 0;
 	while (index < lem->rooms)
 	{
 		temp = lem->list;

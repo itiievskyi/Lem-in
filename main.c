@@ -59,7 +59,7 @@ int			main(void)
 	parse(lem, 0);
 	while (!lem->done)
 	{
-		bfs(lem, 0);
+		bfs(lem, 0, 0);
 		if (lem->done)
 			break ;
 		find_way(lem);
@@ -67,6 +67,5 @@ int			main(void)
 	}
 	set_turns(lem);
 	clean_all(lem, -1, 0);
-//	system("leaks lem-in");
 	return (0);
 }

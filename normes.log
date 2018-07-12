@@ -1,0 +1,41 @@
+Norme: ./clean.c
+Error (line 44): declarations in error_exit are bad aligned
+Error (line 44): declarations in error_exit must be at the top of the function
+Error (line 44): declarations must be followed by one empty line in error_exit
+Error (line 48, col 5): a is instanciated during declaration
+Error (line 49): missing newline after while
+Error (line 49, col 21): no newline before block
+Norme: ./main.c
+Norme: ./slists.c
+Norme: ./lemin.h
+Norme: ./parse.c
+Error (line 51): function bfs has 27 lines
+Norme: ./validate.c
+Error (line 15): Space before function name
+Error (line 58): line has 84 characters
+Error (line 69): Space before function name
+Error (line 81, col 57): missing space around ||
+Error (line 133): C++ comment
+Error (line 134): C++ comment
+Error (line 135, col 1): no empty line before block
+Norme: ./solve.c
+Error: 8 functions in the file
+Error (line 15): function print_turn has 31 lines
+Error (line 50): function move_ants has 31 lines
+Error (line 82, col 1): missing space after return
+Error (line 85): function print_result has 26 lines
+Error (line 115): Space before function name
+Error (line 115): declarations must be followed by one empty line in print_str
+Error (line 119): C++ comment
+Error (line 129): C++ comment
+Error (line 130): C++ comment
+Error (line 131): C++ comment
+Error (line 181): bad indentation
+Error (line 182): bad indentation
+Error (line 183): bad indentation
+Error (line 184): bad indentation
+Error (line 184, col 4): missing space after return
+Error (line 185): bad indentation
+Error (line 189, col 1): missing space after return
+Error (line 209): function find_way has 26 lines
+Error (line 216): bad indentation

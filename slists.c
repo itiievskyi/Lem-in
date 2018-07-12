@@ -54,7 +54,7 @@ int		ft_slist_pushback(t_slist **begin, char *room, int num)
 	else if (room)
 		*begin = ft_slist_new(room, num);
 	else
-		return(0);
+		return (0);
 	return (1);
 }
 

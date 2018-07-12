@@ -116,7 +116,8 @@ static void print_str(t_lemin *lem, int i)
 {
 	char	**arr;
 
-	arr = ft_strsplit(lem->string, '\n');
+//	arr = ft_strsplit(lem->string, '\n');
+	arr = lem->arr;
 	while (arr[i])
 	{
 		if (!ft_strcmp(arr[i], "##start") || !ft_strcmp(arr[i], "##end") ||
@@ -125,9 +126,9 @@ static void print_str(t_lemin *lem, int i)
 		i++;
 	}
 	i = 0;
-	while (arr[i])
-		free(arr[i++]);
-	free(arr);
+//	while (arr[i])
+//		free(arr[i++]);
+//	free(arr);
 	ft_printf("\n");
 }
 
