@@ -29,6 +29,8 @@ static void	write_string(t_lemin *lem)
 		}
 		lem->index++;
 	}
+	if (!lem->index)
+		error_exit(lem, 0);
 	lem->string[lem->index] = '\0';
 	lem->index++;
 	lem->arr = ft_strsplit(lem->string, '\n');
@@ -57,21 +59,24 @@ static void	init_struct(t_lemin *lem)
 	lem->ants = 0;
 	lem->index = 0;
 	lem->error = 0;
-	lem->string = (char*)malloc(sizeof(char) * 1000000);
+	lem->string = (char*)malloc(sizeof(char) * BUF);
 	lem->arr = NULL;
 	lem->rooms = 0;
 	lem->y = 0;
 	lem->done = 0;
 	lem->iter = 0;
+	lem->col = 0;
 	ft_bzero(lem->ways, sizeof(lem->ways));
 }
 
-int			main(void)
+int			main(int argc, char **argv)
 {
 	t_lemin		*lem;
 
 	lem = (t_lemin*)malloc(sizeof(t_lemin));
 	init_struct(lem);
+	if (argc == 2 && ft_strequ(argv[1], "color"))
+		lem->col = 1;
 	write_string(lem);
 	parse(lem, 0);
 	while (!lem->done)

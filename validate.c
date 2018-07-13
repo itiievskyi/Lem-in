@@ -96,31 +96,33 @@ static void check_lines(t_lemin *lem, int i)
 void		validate(t_lemin *lem)
 {
 	int i;
+	int x;
 
 	i = 0;
+	x = 0;
 	if (!lem)
 		error_exit(lem, 0);
-	while ((lem->arr[0])[i] != '\0')
-		if (!ft_isdigit(lem->arr[0][i++]) || ft_atoi(lem->arr[0]) == 0)
+	while (lem->arr[i][0] == '#')
+		i++;
+	while ((lem->arr[i])[x] != '\0')
+		if (!ft_isdigit(lem->arr[i][x++]) || ft_atoi(lem->arr[i]) == 0)
 			error_exit(lem, 0);
 	check_coos(lem, 0, 0);
 	check_lines(lem, 0);
 }
 
-void		check_parse(t_lemin *lem, int i)
+void		check_parse(t_lemin *lem, int i, int x)
 {
-	int			x;
 	char		*s1;
 	char		*s2;
 
-	lem->error = 0;
 	if (!lem->start || !lem->end || ft_count_in_array(lem->arr, "##start") != 1
 		|| ft_count_in_array(lem->arr, "##end") != 1)
 			error_exit(lem, 0);
-	while (lem->arr[++i])
+	while (lem->arr[++i] && !lem->error)
 	{
 		x = 1;
-		while (++x < i)
+		while (++x < i && !lem->error)
 		{
 			s1 = get_word(lem->arr[i], 1);
 			s2 = get_word(lem->arr[x], 1);
@@ -129,10 +131,8 @@ void		check_parse(t_lemin *lem, int i)
 					lem->error = 1;
 			free(s1);
 			free(s2);
-			if (lem->error) {
+			if (lem->error)
 				cut_array(lem, i);
-				break ;
-			}
 		}
 		if (lem->arr[i] && check_pipes(lem, lem->arr[i]))
 			cut_array(lem, i);

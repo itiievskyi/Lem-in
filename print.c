@@ -12,38 +12,30 @@
 
 #include "lemin.h"
 
-void		print_turn(t_lemin *lem)
+void		print_turn(t_lemin *lem, int ant, int way, int count)
 {
-	int			ant;
 	t_slist		*temp;
-	int			way;
 	int			stop;
-	int			count;
 
-	ant = 1;
-	count = 0;
-	while (ant < lem->ants + 1)
+	while (++ant < lem->ants + 1)
 	{
 		stop = 0;
-		way = 0;
-		while (lem->ways[way] && !stop)
+		way = -1;
+		while (lem->ways[++way] && !stop && (temp = lem->ways[way]))
 		{
-			temp = lem->ways[way];
 			while (temp && !stop)
 			{
 				if (temp->ant == ant && temp->num != 0)
 				{
 					if (++count > 1)
-						ft_printf(" L%d-%s", ant, temp->room);
-					else
-						ft_printf("L%d-%s", ant, temp->room);
+						ft_printf(" ");
+					lem->col == 0 ? ft_printf("L%d-%s", ant, temp->room) :
+						ft_printf(CB_GREEN "L%d-%s" C_RESET, ant, temp->room);
 					stop = 1;
 				}
 				temp = temp->next;
 			}
-			way++;
 		}
-		ant++;
 	}
 	if (count)
 		ft_printf("\n");
@@ -74,7 +66,7 @@ void		print_result(t_lemin *lem, int turns[])
 			on = 1;
 		else
 			on = 0;
-		print_turn(lem);
+		print_turn(lem, 0, 0, 0);
 	}
 }
 
@@ -87,7 +79,8 @@ void		print_str(t_lemin *lem, int i)
 	{
 		if (!ft_strcmp(arr[i], "##start") || !ft_strcmp(arr[i], "##end") ||
 			!(arr[i][0] == '#' && arr[i][1] == '#'))
-			ft_printf("%s\n", arr[i]);
+			lem->col == 0 ? ft_printf("%s\n", arr[i]) :
+				ft_printf(C_YELLOW "%s\n" C_RESET, arr[i]);
 		i++;
 	}
 	i = 0;

@@ -61,7 +61,7 @@ void		error_exit(t_lemin *lem, int x)
 		free(temp->room);
 		free(temp);
 	}
-	ft_printf(C_RED "ERROR\n" C_RESET);
+	lem->col == 0 ? ft_printf("ERROR\n") : ft_printf(CB_RED "ERROR\n" C_RESET);
 	exit(-1);
 }
 

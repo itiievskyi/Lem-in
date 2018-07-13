@@ -80,6 +80,8 @@ void		parse(t_lemin *lem, int i)
 {
 	char	*temp;
 
+	while (lem->arr[i][0] == '#')
+		i++;
 	lem->ants = ft_atoi(lem->arr[i]);
 	while (!ft_strncmp(lem->arr[++i], "##", 2) || ft_strchr(lem->arr[i], ' '))
 	{
@@ -99,7 +101,8 @@ void		parse(t_lemin *lem, int i)
 			free(temp);
 		}
 	}
-	check_parse(lem, 0);
+	lem->error = 0;
+	check_parse(lem, 0, 0);
 	ft_slist_pushfront(&lem->list, lem->start, 0);
 	ft_slist_pushback(&lem->list, lem->end, lem->rooms - 1);
 }

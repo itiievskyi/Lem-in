@@ -13,7 +13,7 @@
 #ifndef LEMIN_H
 # define LEMIN_H
 # include "./libft/libft.h"
-
+# define BUF 10000000
 typedef struct		s_slist
 {
 	void			*room;
@@ -36,6 +36,7 @@ typedef struct		s_lemin
 	int				iter;
 	char			*start;
 	char			*end;
+	int				col;
 	t_slist			*list;
 	t_slist			*ways[100];
 }					t_lemin;
@@ -53,10 +54,10 @@ int					ft_slist_length(t_slist *list);
 void				clean_all(t_lemin *lem, int way, int x);
 void				error_exit(t_lemin *lem, int x);
 void				cut_array(t_lemin *lem, int x);
-void				check_parse(t_lemin *lem, int i);
+void				check_parse(t_lemin *lem, int i, int x);
 void				check_bfs(t_lemin *lem, int i);
 void				clean_array(char **arr);
-void				print_turn(t_lemin *lem);
+void				print_turn(t_lemin *lem, int ant, int way, int count);
 void				print_result(t_lemin *lem, int turns[]);
 void				print_str(t_lemin *lem, int i);
 int					move_ants(t_lemin *lem, int way, int res, int x);
