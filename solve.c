@@ -45,6 +45,8 @@ static void	print_turn(t_lemin *lem)
 		}
 		ant++;
 	}
+	if (count)
+		ft_printf("\n");
 }
 
 static int	move_ants(t_lemin *lem)
@@ -60,6 +62,7 @@ static int	move_ants(t_lemin *lem)
 	{
 		temp = lem->ways[way];
 		x = ft_slist_length(temp) - 1;
+//		ft_printf("x = %d, way = %d\n", x, way);
 		while (x >= 0)
 		{
 			while (temp->num < x)
@@ -72,7 +75,7 @@ static int	move_ants(t_lemin *lem)
 			x--;
 			temp = lem->ways[way];
 		}
-		while (temp->next)
+		while (temp)
 		{
 			res += temp->ant;
 			temp = temp->next;
@@ -108,7 +111,6 @@ static void	print_result(t_lemin *lem, int turns[])
 		else
 			on = 0;
 		print_turn(lem);
-		ft_printf("\n");
 	}
 }
 
