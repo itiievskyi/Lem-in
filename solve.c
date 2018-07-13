@@ -12,57 +12,14 @@
 
 #include "lemin.h"
 
-static void	print_turn(t_lemin *lem)
-{
-	int			ant;
-	t_slist		*temp;
-	int			way;
-	int			stop;
-	int			count;
-
-	ant = 1;
-	count = 0;
-	while (ant < lem->ants + 1)
-	{
-		stop = 0;
-		way = 0;
-		while (lem->ways[way] && !stop)
-		{
-			temp = lem->ways[way];
-			while (temp && !stop)
-			{
-				if (temp->ant == ant && temp->num != 0)
-				{
-					if (++count > 1)
-						ft_printf(" L%d-%s", ant, temp->room);
-					else
-						ft_printf("L%d-%s", ant, temp->room);
-					stop = 1;
-				}
-				temp = temp->next;
-			}
-			way++;
-		}
-		ant++;
-	}
-	if (count)
-		ft_printf("\n");
-}
-
-static int	move_ants(t_lemin *lem)
+int			move_ants(t_lemin *lem, int way, int res, int x)
 {
 	t_slist		*temp;
-	int			way;
-	int			x;
-	int			res;
 
-	way = 0;
-	res = 0;
-	while (lem->ways[way])
+	while (lem->ways[++way])
 	{
 		temp = lem->ways[way];
 		x = ft_slist_length(temp) - 1;
-//		ft_printf("x = %d, way = %d\n", x, way);
 		while (x >= 0)
 		{
 			while (temp->num < x)
@@ -80,58 +37,8 @@ static int	move_ants(t_lemin *lem)
 			res += temp->ant;
 			temp = temp->next;
 		}
-		way++;
 	}
 	return(res);
-}
-
-static void	print_result(t_lemin *lem, int turns[])
-{
-	int			ant;
-	int			on;
-	int			way;
-
-	ant = 1;
-	on = 1;
-	while (on)
-	{
-		way = 0;
-		while (lem->ways[way])
-		{
-			if (turns[way])
-			{
-				lem->ways[way]->ant = ant;
-				ant += 1;
-				turns[way] -= 1;
-			}
-			way++;
-		}
-		if (move_ants(lem) > 0)
-			on = 1;
-		else
-			on = 0;
-		print_turn(lem);
-	}
-}
-
-static void print_str(t_lemin *lem, int i)
-{
-	char	**arr;
-
-//	arr = ft_strsplit(lem->string, '\n');
-	arr = lem->arr;
-	while (arr[i])
-	{
-		if (!ft_strcmp(arr[i], "##start") || !ft_strcmp(arr[i], "##end") ||
-			!(arr[i][0] == '#' && arr[i][1] == '#'))
-			ft_printf("%s\n", arr[i]);
-		i++;
-	}
-	i = 0;
-//	while (arr[i])
-//		free(arr[i++]);
-//	free(arr);
-	ft_printf("\n");
 }
 
 void		set_turns(t_lemin *lem)
@@ -191,23 +98,6 @@ static int	near(char *two, char *one, t_lemin *lem)
 	return(0);
 }
 
-static void	reinit_list(t_lemin *lem)
-{
-	t_slist		*temp;
-
-	temp = lem->list;
-	while (temp)
-	{
-		if (!ft_strcmp(temp->room, lem->end))
-			temp->num = lem->rooms - 1;
-		if (!ft_strcmp(temp->room, lem->start))
-			temp->num = 0;
-		if (!temp->used && temp->num != 0 && temp->num != lem->rooms - 1)
-			temp->num = -1;
-		temp = temp->next;
-	}
-}
-
 void		find_way(t_lemin *lem)
 {
 	t_slist		*temp;
@@ -235,5 +125,4 @@ void		find_way(t_lemin *lem)
 		if (ft_strcmp(temp->room, lem->start))
 			temp->used = 1;
 	}
-	reinit_list(lem);
 }

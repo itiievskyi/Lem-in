@@ -35,6 +35,23 @@ static void	write_string(t_lemin *lem)
 	validate(lem);
 }
 
+void		reinit_list(t_lemin *lem)
+{
+	t_slist		*temp;
+
+	temp = lem->list;
+	while (temp)
+	{
+		if (!ft_strcmp(temp->room, lem->end))
+			temp->num = lem->rooms - 1;
+		if (!ft_strcmp(temp->room, lem->start))
+			temp->num = 0;
+		if (!temp->used && temp->num != 0 && temp->num != lem->rooms - 1)
+			temp->num = -1;
+		temp = temp->next;
+	}
+}
+
 static void	init_struct(t_lemin *lem)
 {
 	lem->ants = 0;
@@ -63,6 +80,7 @@ int			main(void)
 		if (lem->done)
 			break ;
 		find_way(lem);
+		reinit_list(lem);
 		lem->iter += 1;
 	}
 	set_turns(lem);

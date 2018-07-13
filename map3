@@ -2,12 +2,7 @@
 ##start
 r_start 23 3
 r_2 16 3
-r_7 34 43
 ##end
 r_end 9 5
-r_end-r_6
-r_end-r_7
-r_start-r_2
-r_2-r_end
+r_2-r_start
 r_end-r_2
-r_7-r_end

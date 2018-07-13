@@ -39,6 +39,7 @@ typedef struct		s_lemin
 	t_slist			*list;
 	t_slist			*ways[100];
 }					t_lemin;
+void				reinit_list(t_lemin *lem);
 void				validate(t_lemin *lem);
 void				parse(t_lemin *lem, int i);
 t_slist				*ft_slist_new(char *room, int num);
@@ -55,4 +56,8 @@ void				cut_array(t_lemin *lem, int x);
 void				check_parse(t_lemin *lem, int i);
 void				check_bfs(t_lemin *lem, int i);
 void				clean_array(char **arr);
+void				print_turn(t_lemin *lem);
+void				print_result(t_lemin *lem, int turns[]);
+void				print_str(t_lemin *lem, int i);
+int					move_ants(t_lemin *lem, int way, int res, int x);
 #endif

@@ -62,11 +62,8 @@ void		bfs(t_lemin *lem, int i, int index)
 			{
 				i = 0;
 				while (lem->arr[lem->y + i])
-				{
-					if ((str = get_pair(lem->arr[lem->y + i], temp->room, 0)))
+					if ((str = get_pair(lem->arr[lem->y + i++], temp->room, 0)))
 						mark_room(lem, str, temp);
-					i++;
-				}
 			}
 			temp = temp->next;
 		}

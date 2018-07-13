@@ -45,10 +45,6 @@ void		error_exit(t_lemin *lem, int x)
 {
 	t_slist		*temp;
 
-//	int a = 0;
-//	while (lem->arr[a]) {
-//		ft_printf("%s\n", lem->arr[a++]);
-//	}
 	x = 0;
 	free(lem->string);
 	if (lem->start)
@@ -65,7 +61,7 @@ void		error_exit(t_lemin *lem, int x)
 		free(temp->room);
 		free(temp);
 	}
-	ft_printf("ERROR\n");
+	ft_printf(C_RED "ERROR\n" C_RESET);
 	exit(-1);
 }
 
