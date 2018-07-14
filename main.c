@@ -104,8 +104,13 @@ int			main(int argc, char **argv)
 	init_struct(lem);
 	if (argc == 2 && ft_strequ(argv[1], "color"))
 		lem->col = 1;
+	if (argc > 2 || (argc == 2 && !ft_strequ(argv[1], "color")))
+	{
+		ft_printf("ERROR: wrong argument!\nUse [color] to highlight output.");
+		error_exit(lem, 0);
+	}
 	write_string(lem);
-	parse(lem, -1);
+	parse(lem, 0);
 	while (!lem->done)
 	{
 		bfs(lem, 0, 0);
