@@ -79,15 +79,14 @@ void		bfs(t_lemin *lem, int i, int index)
 void		parse(t_lemin *lem, int i)
 {
 	char	*temp;
+	char	*s;
 
-	while (lem->arr[i][0] == '#')
-		i++;
-	lem->ants = ft_atoi(lem->arr[i]);
-	while (!ft_strncmp(lem->arr[++i], "##", 2) || ft_strchr(lem->arr[i], ' '))
+	while ((s = lem->arr[++i]) &&
+			!(ft_words_count(s) == 1 && ft_strchr(s, '-')))
 	{
-		if (!ft_strcmp(lem->arr[i], "##start"))
+		if (!ft_strcmp(s, "##start"))
 			lem->start = get_word(lem->arr[i + 1], 1);
-		if (!ft_strcmp(lem->arr[i], "##end"))
+		else if (!ft_strcmp(s, "##end"))
 			lem->end = get_word(lem->arr[i + 1], 1);
 	}
 	while (++(lem->y) < i && lem->start && lem->end)
@@ -105,4 +104,32 @@ void		parse(t_lemin *lem, int i)
 	check_parse(lem, 0, 0);
 	ft_slist_pushfront(&lem->list, lem->start, 0);
 	ft_slist_pushback(&lem->list, lem->end, lem->rooms - 1);
+}
+
+void		check_parse(t_lemin *lem, int i, int x)
+{
+	char		*s1;
+	char		*s2;
+
+	if (!lem->start || !lem->end || ft_count_in_array(lem->arr, "##start") != 1
+		|| ft_count_in_array(lem->arr, "##end") != 1)
+			error_exit(lem, 0);
+	while (lem->arr[++i] && !lem->error)
+	{
+		x = 1;
+		while (++x < i && !lem->error)
+		{
+			s1 = get_word(lem->arr[i], 1);
+			s2 = get_word(lem->arr[x], 1);
+			if (s1[0] != '#' && s2[0] != '#' && !ft_strcmp(s1, s2) &&
+				ft_words_count(lem->arr[i]) != 1)
+					lem->error = 1;
+			free(s1);
+			free(s2);
+			if (lem->error)
+				cut_array(lem, i);
+		}
+		if (lem->arr[i] && check_pipes(lem, lem->arr[i]))
+			cut_array(lem, i);
+	}
 }

@@ -12,7 +12,7 @@
 
 #include "lemin.h"
 
-static void check_coos(t_lemin *lem, int i, int x)
+void		check_coos(t_lemin *lem, int i, int x)
 {
 	char	*s1;
 	char	*s2;
@@ -37,14 +37,13 @@ static void check_coos(t_lemin *lem, int i, int x)
 	}
 }
 
-static int	check_pipes(t_lemin *lem, char *s1)
+int			check_pipes(t_lemin *lem, char *s1, int empty)
 {
 	char	**arr1;
 	t_slist	*temp;
-	int		empty;
 
+	lem->error = 0;
 	temp = lem->list;
-	empty = 0;
 	arr1 = ft_strsplit(s1, '-');
 	if (s1[0] != '#' && ft_words_count(s1) == 1 && ft_strchr(s1, '-'))
 	{
@@ -55,7 +54,8 @@ static int	check_pipes(t_lemin *lem, char *s1)
 		}
 		while (temp)
 		{
-			if (!ft_strequ(arr1[0], temp->room) && !ft_strequ(arr1[1], temp->room))
+			if (!ft_strequ(arr1[0], temp->room) &&
+				!ft_strequ(arr1[1], temp->room))
 				empty++;
 			temp = temp->next;
 		}
@@ -66,75 +66,70 @@ static int	check_pipes(t_lemin *lem, char *s1)
 	return (lem->error);
 }
 
-static void check_lines(t_lemin *lem, int i)
+static int		check_the_same(t_lemin *lem, int x, int i, int error)
 {
-	int		words;
 	char	*s;
-	int		pipe;
+	char	**arr1;
 
-	pipe = 0;
-	while (lem->arr[i])
+	while (!error && (s = lem->arr[++i]) && i < x)
+	{
+		arr1 = ft_strsplit(s, '-');
+		if (s[0] != '#' && ft_strequ(s, lem->arr[x]))
+			error = 1;
+		clean_array(arr1);
+	}
+	return (error);
+}
+
+void		check_lines(t_lemin *lem, int i, int words, int pipe)
+{
+	char	*s;
+
+	while (lem->arr[++i])
 	{
 		s = lem->arr[i];
 		words = ft_words_count(lem->arr[i]);
 		if (s && (s[0] == 'L' || (s[0] != '#' && words != 1 && words != 3) ||
-			(i && words == 1 && !ft_strchr(s, '-') && s[0] != '#')||
-			s[0] == ' ' || ((!ft_strcmp(s, "##start") || !ft_strcmp(s, "##end"))
-			&& ft_words_count(lem->arr[i + 1]) != 3) || check_pipes(lem, s)))
+		(!ft_isdigit_str(s) && words == 1 && !ft_strchr(s, '-') && s[0] != '#')
+		|| s[0] == ' ' || ((!ft_strcmp(s, "##start") || !ft_strcmp(s, "##end"))
+		&& lem->arr[i + 1] && ft_words_count(lem->arr[i + 1]) != 3) ||
+		check_pipes(lem, s, 0) || check_the_same(lem, i, -1, 0)))
 		{
 			cut_array(lem, i);
 			break ;
 		}
 		if (s[0] != '#' && words == 1 && ft_strchr(s, '-'))
 			pipe++;
-		i++;
 	}
 	if (i < 6 || !pipe)
 		error_exit(lem, 0);
 }
 
-void		validate(t_lemin *lem)
+void		check_main(t_lemin *lem, int i, int room, int pipe)
 {
-	int i;
-	int x;
+	char	**temp;
+	char	*s;
 
-	i = 0;
-	x = 0;
-	if (!lem)
-		error_exit(lem, 0);
-	while (lem->arr[i][0] == '#')
-		i++;
-	while ((lem->arr[i])[x] != '\0')
-		if (!ft_isdigit(lem->arr[i][x++]) || ft_atoi(lem->arr[i]) == 0)
-			error_exit(lem, 0);
-	check_coos(lem, 0, 0);
-	check_lines(lem, 0);
-}
-
-void		check_parse(t_lemin *lem, int i, int x)
-{
-	char		*s1;
-	char		*s2;
-
-	if (!lem->start || !lem->end || ft_count_in_array(lem->arr, "##start") != 1
-		|| ft_count_in_array(lem->arr, "##end") != 1)
-			error_exit(lem, 0);
-	while (lem->arr[++i] && !lem->error)
+	while (!lem->error && (s = lem->arr[++i]))
 	{
-		x = 1;
-		while (++x < i && !lem->error)
+		if (ft_isdigit_str(s))
 		{
-			s1 = get_word(lem->arr[i], 1);
-			s2 = get_word(lem->arr[x], 1);
-			if (s1[0] != '#' && s2[0] != '#' && !ft_strcmp(s1, s2) &&
-				ft_words_count(lem->arr[i]) != 1)
-					lem->error = 1;
-			free(s1);
-			free(s2);
-			if (lem->error)
+			if (pipe || room)
 				cut_array(lem, i);
+			else
+				lem->ants = ft_atoi(s);
 		}
-		if (lem->arr[i] && check_pipes(lem, lem->arr[i]))
-			cut_array(lem, i);
+		if (s && s[0] != '#' && ft_words_count(s) == 3 && ++room)
+		{
+			temp = ft_strsplit(s, ' ');
+			if (!ft_isdigit_str(temp[2]) || !ft_isdigit_str(temp[1]))
+			{
+				cut_array(lem, i);
+				lem->error = 1;
+			}
+			clean_array(temp);
+		}
+		if (s && s[0] != '#' && ft_words_count(s) == 1 && ft_strchr(s, '-'))
+			pipe++;
 	}
 }

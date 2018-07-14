@@ -1,30 +1,33 @@
-100
+#COMMENT_BEFORE_ANT
+5
 ##start
-rs 1 0
+r_start 23 3
+r_1 16 7
+r_2 16 3
+r_3 24 12
+r_4 7 19
+r_5 16 5
+r_6 9 3
+r_7 1 5
+r_8 4 8
 ##end
-re 5 0
-s1 1 1
-s2 2 2
-s3 3 3
-s4 4 4
-s5 5 5
-s6 6 6
-s7 7 7
-s8 8 8
-rs-s1
-rs-s3
-rs-s5
-rs-s7
-s1-s2
-s3-s4
-s5-s6
-s7-s8
-s2-re
-s4-re
-s6-re
-s8-re
+r_end 9 5
+r_end-r_6
+r_end-r_7
+r_start-r_2
+r_5-r_2
+r_6-r_1
+r_2-r_6
+r_5-r_1
+r_1-r_start
+r_8-r_7
+r_8-r_1
+r_8-r_5
+r_7-r_6
 
-L1-s1 L2-s3 L3-s5 L4-s7
-L1-s2 L2-s4 L3-s6 L4-s8 L5-s1
-L1-re L2-re L3-re L4-re L5-s2
-L5-re
+L1-r_1 L2-r_2
+L1-r_6 L2-r_5 L3-r_1
+L1-r_end L2-r_8 L3-r_6 L4-r_1
+L2-r_7 L3-r_end L4-r_6 L5-r_1
+L2-r_end L4-r_end L5-r_6
+L5-r_end

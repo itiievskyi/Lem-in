@@ -12,6 +12,25 @@
 
 #include "lemin.h"
 
+void		validate(t_lemin *lem)
+{
+	int		i;
+	int		x;
+
+	i = 0;
+	x = 0;
+	if (!lem)
+		error_exit(lem, 0);
+	while (lem->arr[i][0] == '#')
+		i++;
+	while ((lem->arr[i])[x] != '\0')
+		if (!ft_isdigit(lem->arr[i][x++]) || ft_atoi(lem->arr[i]) == 0)
+			error_exit(lem, 0);
+	check_main(lem, -1, 0, 0);
+	check_coos(lem, 0, 0);
+	check_lines(lem, -1, 0, 0);
+}
+
 static void	write_string(t_lemin *lem)
 {
 	char	ch;
@@ -78,7 +97,7 @@ int			main(int argc, char **argv)
 	if (argc == 2 && ft_strequ(argv[1], "color"))
 		lem->col = 1;
 	write_string(lem);
-	parse(lem, 0);
+	parse(lem, -1);
 	while (!lem->done)
 	{
 		bfs(lem, 0, 0);
