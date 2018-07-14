@@ -26,6 +26,14 @@ void		validate(t_lemin *lem)
 	while ((lem->arr[i])[x] != '\0')
 		if (!ft_isdigit(lem->arr[i][x++]) || ft_atoi(lem->arr[i]) == 0)
 			error_exit(lem, 0);
+	while ((lem->arr[++i]) &&
+			!(ft_words_count(lem->arr[i]) == 1 && ft_strchr(lem->arr[i], '-')))
+	{
+		if (!ft_strcmp(lem->arr[i], "##start"))
+			lem->start = get_word(lem->arr[i + 1], 1);
+		else if (!ft_strcmp(lem->arr[i], "##end"))
+			lem->end = get_word(lem->arr[i + 1], 1);
+	}
 	check_main(lem, -1, 0, 0);
 	check_coos(lem, 0, 0);
 	check_lines(lem, -1, 0, 0);

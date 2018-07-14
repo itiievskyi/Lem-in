@@ -58,7 +58,7 @@ void				check_parse(t_lemin *lem, int i, int x);
 void				check_bfs(t_lemin *lem, int i);
 void				check_main(t_lemin *lem, int i, int room, int pipe);
 void				check_lines(t_lemin *lem, int i, int words, int pipe);
-int					check_pipes(t_lemin *lem, char *s1, int empty);
+int					check_pipes(t_lemin *lem, char *s1, int empty1, int empty2);
 void				check_coos(t_lemin *lem, int i, int x);
 void				clean_array(char **arr);
 void				print_turn(t_lemin *lem, int ant, int way, int count);

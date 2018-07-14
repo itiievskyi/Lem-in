@@ -37,7 +37,7 @@ void		check_coos(t_lemin *lem, int i, int x)
 	}
 }
 
-int			check_pipes(t_lemin *lem, char *s1, int empty)
+int			check_pipes(t_lemin *lem, char *s1, int empty1, int empty2)
 {
 	char	**arr1;
 	t_slist	*temp;
@@ -52,16 +52,21 @@ int			check_pipes(t_lemin *lem, char *s1, int empty)
 			clean_array(arr1);
 			return (1);
 		}
-		while (temp)
+		while (!lem->error && temp)
 		{
 			if (!ft_strequ(arr1[0], temp->room) &&
-				!ft_strequ(arr1[1], temp->room))
-				empty++;
+			!ft_strequ(arr1[0], lem->end) && !ft_strequ(arr1[0], lem->start))
+				empty1++;
+			if (!ft_strequ(arr1[1], temp->room) &&
+			!ft_strequ(arr1[1], lem->end) && !ft_strequ(arr1[1], lem->start))
+				empty2++;
+//			ft_printf("length = %d, empty1 = %d, empty2 = %d, temp->room = %s, arr1[0] = %s, arr1[1] = %s\n", ft_slist_length(lem->list), empty1, empty2, temp->room, arr1[0], arr1[1]);
 			temp = temp->next;
+			if (ft_slist_length(lem->list) != 0 && (ft_slist_length(lem->list) == empty1
+			|| ft_slist_length(lem->list) == empty2))
+				lem->error = 1;
 		}
 	}
-	if (ft_slist_length(lem->list) != 0 && ft_slist_length(lem->list) == empty)
-		lem->error = 1;
 	clean_array(arr1);
 	return (lem->error);
 }
@@ -93,7 +98,7 @@ void		check_lines(t_lemin *lem, int i, int words, int pipe)
 		(!ft_isdigit_str(s) && words == 1 && !ft_strchr(s, '-') && s[0] != '#')
 		|| s[0] == ' ' || ((!ft_strcmp(s, "##start") || !ft_strcmp(s, "##end"))
 		&& lem->arr[i + 1] && ft_words_count(lem->arr[i + 1]) != 3) ||
-		check_pipes(lem, s, 0) || check_the_same(lem, i, -1, 0)))
+		check_pipes(lem, s, 0, 0) || check_the_same(lem, i, -1, 0)))
 		{
 			cut_array(lem, i);
 			break ;
