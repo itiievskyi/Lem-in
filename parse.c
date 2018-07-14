@@ -129,7 +129,7 @@ void		check_parse(t_lemin *lem, int i, int x)
 			if (lem->error)
 				cut_array(lem, i);
 		}
-		if (lem->arr[i] && check_pipes(lem, lem->arr[i]))
+		if (lem->arr[i] && check_pipes(lem, lem->arr[i], 0))
 			cut_array(lem, i);
 	}
 }
