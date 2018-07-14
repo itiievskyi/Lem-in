@@ -47,11 +47,6 @@ int			check_pipes(t_lemin *lem, char *s1, int empty1, int empty2)
 	arr1 = ft_strsplit(s1, '-');
 	if (s1[0] != '#' && ft_words_count(s1) == 1 && ft_strchr(s1, '-'))
 	{
-		if (ft_strequ(arr1[0], arr1[1]))
-		{
-			clean_array(arr1);
-			return (1);
-		}
 		while (!lem->error && temp)
 		{
 			if (!ft_strequ(arr1[0], temp->room) &&
@@ -60,10 +55,9 @@ int			check_pipes(t_lemin *lem, char *s1, int empty1, int empty2)
 			if (!ft_strequ(arr1[1], temp->room) &&
 			!ft_strequ(arr1[1], lem->end) && !ft_strequ(arr1[1], lem->start))
 				empty2++;
-//			ft_printf("length = %d, empty1 = %d, empty2 = %d, temp->room = %s, arr1[0] = %s, arr1[1] = %s\n", ft_slist_length(lem->list), empty1, empty2, temp->room, arr1[0], arr1[1]);
 			temp = temp->next;
-			if (ft_slist_length(lem->list) != 0 && (ft_slist_length(lem->list) == empty1
-			|| ft_slist_length(lem->list) == empty2))
+			if (ft_slist_length(lem->list) != 0 && (ft_slist_length(lem->list)
+			== empty1 || ft_slist_length(lem->list) == empty2))
 				lem->error = 1;
 		}
 	}
@@ -76,6 +70,14 @@ static int		check_the_same(t_lemin *lem, int x, int i, int error)
 	char	*s;
 	char	**arr1;
 
+	if (lem->arr[x][0] != '#' && ft_words_count(lem->arr[x]) == 1 &&
+		ft_strchr(lem->arr[x], '-'))
+	{
+		arr1 = ft_strsplit(lem->arr[x], '-');
+		if (ft_strequ(arr1[0], arr1[1]))
+			error = 1;
+		clean_array(arr1);
+	}
 	while (!error && (s = lem->arr[++i]) && i < x)
 	{
 		arr1 = ft_strsplit(s, '-');
