@@ -89,5 +89,4 @@
 
 # define CT_PURPLE		"\e[5;35m"
 
-
 #endif
