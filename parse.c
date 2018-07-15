@@ -82,8 +82,8 @@ void		parse(t_lemin *lem, int i)
 	char	*s;
 
 	while ((s = lem->arr[i]) &&
-			!(ft_words_count(s) == 1 && ft_strchr(s, '-')))
-			i++;
+		!(ft_words_count(s) == 1 && ft_strchr(s, '-')))
+		i++;
 	while (++(lem->y) < i && lem->start && lem->end)
 	{
 		if (ft_strchr(lem->arr[lem->y], ' '))
@@ -108,7 +108,7 @@ void		check_parse(t_lemin *lem, int i, int x)
 
 	if (!lem->start || !lem->end || ft_count_in_array(lem->arr, "##start") != 1
 		|| ft_count_in_array(lem->arr, "##end") != 1)
-			error_exit(lem, 0);
+		error_exit(lem, 0);
 	while (lem->arr[++i] && !lem->error)
 	{
 		x = 1;
@@ -118,7 +118,7 @@ void		check_parse(t_lemin *lem, int i, int x)
 			s2 = get_word(lem->arr[x], 1);
 			if (s1[0] != '#' && s2[0] != '#' && !ft_strcmp(s1, s2) &&
 				ft_words_count(lem->arr[i]) != 1)
-					lem->error = 1;
+				lem->error = 1;
 			free(s1);
 			free(s2);
 			if (lem->error)

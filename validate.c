@@ -65,7 +65,7 @@ int			check_pipes(t_lemin *lem, char *s1, int empty1, int empty2)
 	return (lem->error);
 }
 
-static int		check_the_same(t_lemin *lem, int x, int i, int error)
+static int	check_the_same(t_lemin *lem, int x, int i, int error)
 {
 	char	*s;
 	char	**arr1;

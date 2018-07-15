@@ -19,7 +19,7 @@ static int	is_space(char c)
 	return (0);
 }
 
-int		ft_words_count(char *str)
+int			ft_words_count(char *str)
 {
 	int		words;
 	int		i;

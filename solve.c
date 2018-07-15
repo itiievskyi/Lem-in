@@ -38,7 +38,7 @@ int			move_ants(t_lemin *lem, int way, int res, int x)
 			temp = temp->next;
 		}
 	}
-	return(res);
+	return (res);
 }
 
 void		set_turns(t_lemin *lem)
@@ -87,15 +87,15 @@ static int	near(char *two, char *one, t_lemin *lem)
 	{
 		if (!ft_strcmp(lem->arr[lem->y + i], str) ||
 			!ft_strcmp(lem->arr[lem->y + i], rev))
-			{
-				free(str);
-				free(rev);
-				return(1);
-			}
+		{
+			free(str);
+			free(rev);
+			return (1);
+		}
 	}
 	free(str);
 	free(rev);
-	return(0);
+	return (0);
 }
 
 void		find_way(t_lemin *lem)
@@ -105,7 +105,7 @@ void		find_way(t_lemin *lem)
 
 	temp = lem->list;
 	while (temp && ft_strcmp(temp->room, lem->end))
-			temp = temp->next;
+		temp = temp->next;
 	a = temp->num - 1;
 	ft_slist_pushback(&lem->ways[lem->iter], temp->room, temp->num);
 	while (a >= 0)

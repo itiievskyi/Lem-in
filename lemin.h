@@ -14,6 +14,7 @@
 # define LEMIN_H
 # include "./libft/libft.h"
 # define BUF 10000000
+
 typedef struct		s_slist
 {
 	void			*room;
@@ -41,7 +42,7 @@ typedef struct		s_lemin
 	t_slist			*ways[100];
 }					t_lemin;
 void				reinit_list(t_lemin *lem);
-void				validate(t_lemin *lem);
+void				validate(t_lemin *lem, int i, int x);
 void				parse(t_lemin *lem, int i);
 t_slist				*ft_slist_new(char *room, int num);
 int					ft_slist_pushback(t_slist **begin, char *room, int num);

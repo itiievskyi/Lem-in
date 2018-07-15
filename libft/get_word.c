@@ -43,5 +43,5 @@ char			*get_word(char *str, int n)
 	while (str[index + a] != '\0' && !(is_space(str[index + a])))
 		a++;
 	word = ft_strsub(str, index, a);
-	return(word);
+	return (word);
 }

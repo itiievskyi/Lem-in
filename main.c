@@ -12,13 +12,8 @@
 
 #include "lemin.h"
 
-void		validate(t_lemin *lem)
+void		validate(t_lemin *lem, int i, int x)
 {
-	int		i;
-	int		x;
-
-	i = 0;
-	x = 0;
 	if (!lem)
 		error_exit(lem, 0);
 	while (lem->arr[i][0] == '#')
@@ -29,6 +24,9 @@ void		validate(t_lemin *lem)
 	while ((lem->arr[++i]) &&
 			!(ft_words_count(lem->arr[i]) == 1 && ft_strchr(lem->arr[i], '-')))
 	{
+		if ((!ft_strcmp(lem->arr[i], "##start") ||
+			!ft_strcmp(lem->arr[i], "##end")) && !lem->arr[i + 1])
+			error_exit(lem, 0);
 		if (!ft_strcmp(lem->arr[i], "##start"))
 			lem->start = get_word(lem->arr[i + 1], 1);
 		else if (!ft_strcmp(lem->arr[i], "##end"))
@@ -61,7 +59,7 @@ static void	write_string(t_lemin *lem)
 	lem->string[lem->index] = '\0';
 	lem->index++;
 	lem->arr = ft_strsplit(lem->string, '\n');
-	validate(lem);
+	validate(lem, 0, 0);
 }
 
 void		reinit_list(t_lemin *lem)
