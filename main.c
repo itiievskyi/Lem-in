@@ -27,9 +27,9 @@ void		validate(t_lemin *lem, int i, int x)
 		if ((!ft_strcmp(lem->arr[i], "##start") ||
 			!ft_strcmp(lem->arr[i], "##end")) && !lem->arr[i + 1])
 			error_exit(lem, 0);
-		if (!ft_strcmp(lem->arr[i], "##start"))
+		if (!ft_strcmp(lem->arr[i], "##start") && lem->arr[i + 1][0] != '#')
 			lem->start = get_word(lem->arr[i + 1], 1);
-		else if (!ft_strcmp(lem->arr[i], "##end"))
+		else if (!ft_strcmp(lem->arr[i], "##end") && lem->arr[i + 1][0] != '#')
 			lem->end = get_word(lem->arr[i + 1], 1);
 	}
 	check_main(lem, -1, 0, 0);

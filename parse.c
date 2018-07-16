@@ -86,7 +86,7 @@ void		parse(t_lemin *lem, int i)
 		i++;
 	while (++(lem->y) < i && lem->start && lem->end)
 	{
-		if (ft_strchr(lem->arr[lem->y], ' '))
+		if (ft_strchr(lem->arr[lem->y], ' ') && (lem->arr[lem->y])[0] != '#')
 		{
 			temp = get_word(lem->arr[lem->y], 1);
 			if (ft_strcmp(temp, lem->start) && ft_strcmp(temp, lem->end))
