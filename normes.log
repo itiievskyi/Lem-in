@@ -1,41 +1,598 @@
-Norme: ./clean.c
-Error (line 44): declarations in error_exit are bad aligned
-Error (line 44): declarations in error_exit must be at the top of the function
-Error (line 44): declarations must be followed by one empty line in error_exit
-Error (line 48, col 5): a is instanciated during declaration
-Error (line 49): missing newline after while
-Error (line 49, col 21): no newline before block
-Norme: ./main.c
-Norme: ./slists.c
+Norme: ./author
+Warning: Not a valid file
+Norme: ./lem-in
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/100_map_0
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/ant_size/char_bit
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/ant_size/char_max
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/ant_size/int_max
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/ant_size/short_max
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/ant_size/uchar_max
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/ant_size/uint_max
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/ant_size/ushort_max
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/ant_size_trace/char_bit_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/ant_size_trace/char_max_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/ant_size_trace/short_max_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/ant_size_trace/uchar_max_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/ant_size_trace/uint_max_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/ant_size_trace/ushort_max_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/big_maps/map100k-m
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/big_maps/map200k-m
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/big_maps/map20k-m
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/big_maps/map50k-1000m
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/big_maps/map50k-300m
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/big_maps/map50k-m
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/cmd/cmd_after_ant
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/cmd/cmd_after_end
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/cmd/cmd_after_pipes
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/cmd/cmd_after_rooms
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/cmd/cmd_after_start
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/cmd/cmd_b_a_ant
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/cmd/cmd_b_a_pipes
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/cmd/cmd_b_a_rooms
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/cmd/cmd_before_ant
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/cmd/cmd_before_end
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/cmd/cmd_before_pipes
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/cmd/cmd_before_rooms
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/cmd/cmd_before_start
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/cmd/cmd_mass_pipes
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/cmd/cmd_mass_rooms
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/cmd_trace/cmd_after_ant_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/cmd_trace/cmd_after_end_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/cmd_trace/cmd_after_pipes_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/cmd_trace/cmd_after_rooms_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/cmd_trace/cmd_after_start_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/cmd_trace/cmd_b_a_ant_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/cmd_trace/cmd_b_a_pipes_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/cmd_trace/cmd_b_a_rooms_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/cmd_trace/cmd_before_ant_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/cmd_trace/cmd_before_end_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/cmd_trace/cmd_before_pipes_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/cmd_trace/cmd_before_rooms_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/cmd_trace/cmd_before_start_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/cmd_trace/cmd_mass_pipes_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/cmd_trace/cmd_mass_rooms_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/comment/comment_###
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/comment/comment_###2
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/comment/comment_after_ant
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/comment/comment_after_end
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/comment/comment_after_end2
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/comment/comment_after_pipes
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/comment/comment_after_rooms
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/comment/comment_after_start
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/comment/comment_after_start2
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/comment/comment_b_a_pipes
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/comment/comment_b_a_rooms
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/comment/comment_before_ant
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/comment/comment_before_ant2
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/comment/comment_before_end
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/comment/comment_before_pipes
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/comment/comment_before_rooms
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/comment/comment_before_start
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/comment/comment_mass_pipes
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/comment/comment_mass_rooms
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/comment/comment_pipe
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/comment/comment_room
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/comment_trace/comment_###2_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/comment_trace/comment_###_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/comment_trace/comment_after_ant_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/comment_trace/comment_after_end2_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/comment_trace/comment_after_end_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/comment_trace/comment_after_pipes_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/comment_trace/comment_after_rooms_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/comment_trace/comment_after_start2_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/comment_trace/comment_after_start_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/comment_trace/comment_b_a_pipes_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/comment_trace/comment_b_a_rooms_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/comment_trace/comment_before_ant2_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/comment_trace/comment_before_ant_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/comment_trace/comment_before_end_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/comment_trace/comment_before_pipes_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/comment_trace/comment_before_rooms_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/comment_trace/comment_before_start_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/comment_trace/comment_mass_pipes_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/comment_trace/comment_mass_rooms_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/comment_trace/comment_pipe_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/comment_trace/comment_room_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/directly_s_e
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/error_ants/alpha_ant
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/error_ants/alphanum_ant
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/error_ants/backn_ant
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/error_ants/no_ant
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/error_ants/space_ant
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/error_ants/zero_ant
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/error_bad_line/bad_line_ant_0
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/error_bad_line/bad_line_ant_1
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/error_bad_line/bad_line_ant_2
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/error_bad_line/bad_line_room_0
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/error_bad_line/bad_line_room_1
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/error_bad_line/bad_line_room_2
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/error_bad_line/bad_line_room_3
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/error_bad_line/bad_line_room_4
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/error_bad_line/bad_line_room_5
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/error_bad_line/bad_line_room_6
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/error_bad_line/bad_line_room_7
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/error_bad_line/bad_line_room_8
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/error_bad_line/bad_line_start_0
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/error_bad_line/bad_line_start_1
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/error_bad_line/bad_line_start_2
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/error_rooms/Lroom
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/error_rooms/no_pipe
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/error_rooms/no_room
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/error_rooms/same_coo
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/error_rooms/same_room
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/error_rooms/same_room2
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/error_rooms/space_after_room
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/error_rooms/space_before_room
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/error_rooms/space_middle_room
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/error_start_end/multi_end
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/error_start_end/multi_start
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/error_start_end/no_access_end
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/error_start_end/no_end
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/error_start_end/no_path_start
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/error_start_end/no_start
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/no_way/no_way0
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/no_way/no_way1
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/no_way/no_way10
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/no_way/no_way2
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/no_way/no_way4
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/no_way/no_way5
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/no_way/no_way6
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/no_way/no_way7
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/no_way/no_way8
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/error/no_way/no_way9
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/map_6
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/map_test0
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/map_test2
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/multiple_ways/four_ways
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/multiple_ways/three_ways
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/multiple_ways/two_ways
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/multiple_ways/two_ways_collision
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/multiple_ways/two_ways_long
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/multiple_ways_trace/four_ways_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/multiple_ways_trace/three_ways_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/multiple_ways_trace/two_ways_collision_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/multiple_ways_trace/two_ways_long_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/multiple_ways_trace/two_ways_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/pipes_error/bad_line_pipe_0
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/pipes_error/bad_line_pipe_1
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/pipes_error/bad_line_pipe_10
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/pipes_error/bad_line_pipe_11
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/pipes_error/bad_line_pipe_12
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/pipes_error/bad_line_pipe_13
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/pipes_error/bad_line_pipe_14
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/pipes_error/bad_line_pipe_2
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/pipes_error/bad_line_pipe_3
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/pipes_error/bad_line_pipe_4
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/pipes_error/bad_line_pipe_5
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/pipes_error/bad_line_pipe_6
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/pipes_error/bad_line_pipe_7
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/pipes_error/bad_line_pipe_8
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/pipes_error/bad_line_pipe_9
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/pipes_error/error_middle_pipe
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/pipes_error/pipe_to_itself
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/pipes_error/same_pipe
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/pipes_error/same_pipe2
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/pipes_error/same_pipe3
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/pipes_error/space_middle_pipe
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/pipes_error_trace/bad_line_pipe_0_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/pipes_error_trace/bad_line_pipe_10_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/pipes_error_trace/bad_line_pipe_11_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/pipes_error_trace/bad_line_pipe_12_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/pipes_error_trace/bad_line_pipe_13_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/pipes_error_trace/bad_line_pipe_14_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/pipes_error_trace/bad_line_pipe_1_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/pipes_error_trace/bad_line_pipe_2_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/pipes_error_trace/bad_line_pipe_3_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/pipes_error_trace/bad_line_pipe_4_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/pipes_error_trace/bad_line_pipe_5_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/pipes_error_trace/bad_line_pipe_6_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/pipes_error_trace/bad_line_pipe_7_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/pipes_error_trace/bad_line_pipe_8_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/pipes_error_trace/bad_line_pipe_9_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/pipes_error_trace/error_middle_pipe_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/pipes_error_trace/pipe_to_itself_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/pipes_error_trace/same_pipe2_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/pipes_error_trace/same_pipe3_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/pipes_error_trace/same_pipe_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/pipes_error_trace/space_middle_pipe_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/subject0.map
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/subject1.map
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/subject2.map
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/valid_maps_part_1/1000_map
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/valid_maps_part_1/100_map
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/valid_maps_part_1/200_map
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/valid_maps_part_1/300_map
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/valid_maps_part_1/400_map
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/valid_maps_part_1/500_map
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/valid_maps_part_1_trace/1000_map_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/valid_maps_part_1_trace/100_map_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/valid_maps_part_1_trace/200_map_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/valid_maps_part_1_trace/300_map_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/valid_maps_part_1_trace/400_map_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/valid_maps_part_1_trace/500_map_alt_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/valid_maps_part_1_trace/500_map_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/valid_maps_part_2/01for10
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/valid_maps_part_2/02for10
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/valid_maps_part_2/03for10
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/valid_maps_part_2/04for10
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/valid_maps_part_2/05for10
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/valid_maps_part_2/06for10
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/valid_maps_part_2/07for10
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/valid_maps_part_2/08for10
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/valid_maps_part_2/09for10
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/valid_maps_part_2/10for10
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/valid_maps_part_2_trace/01for10_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/valid_maps_part_2_trace/02for10_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/valid_maps_part_2_trace/03for10_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/valid_maps_part_2_trace/04for10_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/valid_maps_part_2_trace/05for10_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/valid_maps_part_2_trace/06for10_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/valid_maps_part_2_trace/07for10_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/valid_maps_part_2_trace/08for10_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/valid_maps_part_2_trace/09for10_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/lem-in_maps/valid_maps_part_2_trace/10for10_trace
+Warning: Not a valid file
+Norme: ./lem-in_test-master/README.md
+Warning: Not a valid file
+Norme: ./lem-in_test-master/src/false_pos_valgrind.supp
+Warning: Not a valid file
+Norme: ./lem-in_test-master/src/ft_basic_checks.sh
+Warning: Not a valid file
+Norme: ./lem-in_test-master/src/ft_tests.sh
+Warning: Not a valid file
+Norme: ./lem-in_test-master/src/ft_var.sh
+Warning: Not a valid file
+Norme: ./lem-in_test-master/src/path_to_exec
+Warning: Not a valid file
+Norme: ./lem-in_test-master/unit_tests.sh
+Warning: Not a valid file
+Norme: ./libft/author
+Warning: Not a valid file
+Norme: ./libft/libft.a
+Warning: Not a valid file
+Norme: ./libft/Makefile
+Warning: Not a valid file
+Norme: ./Makefile
+Warning: Not a valid file
+Norme: ./maps/map.png
+Warning: Not a valid file
+Norme: ./maps/map3
+Warning: Not a valid file
+Norme: ./maps/map_0
+Warning: Not a valid file
+Norme: ./maps/MAP_1
+Warning: Not a valid file
+Norme: ./maps/MAP_2
+Warning: Not a valid file
+Norme: ./maps/MAP_4
+Warning: Not a valid file
+Norme: ./maps/map_comment
+Warning: Not a valid file
+Norme: ./maps/map_edit
+Warning: Not a valid file
+Norme: ./maps/subject1.map
+Warning: Not a valid file
+Norme: ./my.out
+Warning: Not a valid file
+Norme: ./normes.log
+Warning: Not a valid file
+Norme: ./libft/colors.h
+Norme: ./libft/ft_bzero.c
+Norme: ./libft/ft_count_in_array.c
 Norme: ./lemin.h
+Norme: ./clean.c
+Norme: ./libft/ft_isalnum.c
+Norme: ./libft/ft_isascii.c
+Norme: ./libft/ft_isalpha.c
+Norme: ./libft/ft_atoi.c
+Norme: ./libft/ft_isdigit.c
+Norme: ./libft/ft_isdigit_str.c
+Norme: ./libft/ft_isprint.c
+Norme: ./libft/ft_lstadd.c
+Norme: ./libft/ft_isint_str.c
+Norme: ./libft/ft_lstdelone.c
+Norme: ./libft/ft_lstdel.c
+Norme: ./libft/ft_lstiter.c
+Norme: ./libft/ft_itoa.c
+Norme: ./libft/ft_lstpushback.c
+Norme: ./libft/ft_memalloc.c
+Norme: ./libft/ft_lstmap.c
+Norme: ./libft/ft_lstnew.c
+Norme: ./libft/ft_memccpy.c
+Norme: ./libft/ft_memchr.c
+Norme: ./libft/ft_memcmp.c
+Norme: ./libft/ft_memcpy.c
+Norme: ./libft/ft_memdel.c
+Norme: ./libft/ft_memset.c
+Norme: ./libft/ft_memmove.c
+Norme: ./libft/ft_printf_chars.c
+Norme: ./libft/ft_printf.c
+Norme: ./libft/ft_printf_double.c
+Norme: ./libft/ft_printf_hex.c
+Norme: ./libft/ft_printf_oct.c
+Norme: ./libft/ft_printf_struct.c
+Norme: ./libft/ft_printf_strings.c
+Norme: ./libft/ft_printf_utils.c
+Norme: ./libft/ft_putchar.c
+Norme: ./libft/ft_printf_ints.c
+Norme: ./libft/ft_putchar_fd.c
+Norme: ./libft/ft_putendl.c
+Norme: ./libft/ft_putnbr.c
+Norme: ./libft/ft_putnbr_fd.c
+Norme: ./libft/ft_printf_params.c
+Norme: ./libft/ft_putendl_fd.c
+Norme: ./libft/ft_putstr_fd.c
+Norme: ./libft/ft_strcat.c
+Norme: ./libft/ft_strchr.c
+Norme: ./libft/ft_strclr.c
+Norme: ./libft/ft_strcpy.c
+Norme: ./libft/ft_strcmp.c
+Norme: ./libft/ft_printf_unicode.c
+Norme: ./libft/ft_strdup.c
+Norme: ./libft/ft_putstr.c
+Norme: ./libft/ft_strdel.c
+Norme: ./libft/ft_strequ.c
+Norme: ./libft/ft_striter.c
+Norme: ./libft/ft_striteri.c
+Norme: ./libft/ft_strlen.c
+Norme: ./libft/ft_strjoin.c
+Norme: ./libft/ft_strlcat.c
+Norme: ./libft/ft_strncat.c
+Norme: ./libft/ft_strmap.c
+Norme: ./libft/ft_strnchr.c
+Norme: ./libft/ft_strmapi.c
+Norme: ./libft/ft_strncpy.c
+Norme: ./libft/ft_strnequ.c
+Norme: ./libft/ft_strncmp.c
+Norme: ./libft/ft_strnew.c
+Norme: ./libft/ft_strrchr.c
+Norme: ./libft/ft_strnstr.c
+Norme: ./libft/ft_strstr.c
+Norme: ./libft/ft_strsub.c
+Norme: ./libft/ft_tolower.c
+Norme: ./libft/ft_toupper.c
+Norme: ./libft/ft_strtrim.c
+Norme: ./libft/ft_words_count.c
+Norme: ./libft/ft_write.c
+Norme: ./libft/ft_strsplit.c
+Norme: ./libft/ft_wstrdup.c
+Norme: ./libft/get_word.c
+Norme: ./libft/get_next_line.c
+Norme: ./print.c
+Norme: ./slists.c
+Norme: ./libft/libft.h
+Norme: ./main.c
+Norme: ./utils.c
 Norme: ./parse.c
-Error (line 51): function bfs has 27 lines
-Norme: ./validate.c
-Error (line 15): Space before function name
-Error (line 58): line has 84 characters
-Error (line 69): Space before function name
-Error (line 81, col 57): missing space around ||
-Error (line 133): C++ comment
-Error (line 134): C++ comment
-Error (line 135, col 1): no empty line before block
 Norme: ./solve.c
-Error: 8 functions in the file
-Error (line 15): function print_turn has 31 lines
-Error (line 50): function move_ants has 31 lines
-Error (line 82, col 1): missing space after return
-Error (line 85): function print_result has 26 lines
-Error (line 115): Space before function name
-Error (line 115): declarations must be followed by one empty line in print_str
-Error (line 119): C++ comment
-Error (line 129): C++ comment
-Error (line 130): C++ comment
-Error (line 131): C++ comment
-Error (line 181): bad indentation
-Error (line 182): bad indentation
-Error (line 183): bad indentation
-Error (line 184): bad indentation
-Error (line 184, col 4): missing space after return
-Error (line 185): bad indentation
-Error (line 189, col 1): missing space after return
-Error (line 209): function find_way has 26 lines
-Error (line 216): bad indentation
+Norme: ./validate.c

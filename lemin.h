@@ -38,6 +38,7 @@ typedef struct		s_lemin
 	char			*start;
 	char			*end;
 	int				col;
+	int				cycle_error;
 	t_slist			*list;
 	t_slist			*ways[100];
 }					t_lemin;
@@ -66,4 +67,5 @@ void				print_turn(t_lemin *lem, int ant, int way, int count);
 void				print_result(t_lemin *lem, int turns[]);
 void				print_str(t_lemin *lem, int i);
 int					move_ants(t_lemin *lem, int way, int res, int x);
+int					connected(t_lemin *lem);
 #endif

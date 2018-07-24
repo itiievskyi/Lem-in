@@ -146,5 +146,6 @@ void			ft_printf_double(t_params *par, va_list arg, int *ret, int a);
 int				ft_words_count(char *str);
 int				ft_count_in_array(char **arr, char *str);
 int				ft_isdigit_str(char *str);
+int				ft_isint_str(char *s);
 
 #endif

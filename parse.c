@@ -72,7 +72,7 @@ void		bfs(t_lemin *lem, int i, int index)
 	temp = lem->list;
 	while (ft_strcmp(temp->room, lem->end))
 		temp = temp->next;
-	if (temp->num == lem->rooms - 1 && lem->iter > 0)
+	if ((temp->num == lem->rooms - 1 && lem->iter > 0))
 		lem->done = 1;
 }
 
@@ -117,7 +117,8 @@ void		check_parse(t_lemin *lem, int i, int x)
 			s1 = get_word(lem->arr[i], 1);
 			s2 = get_word(lem->arr[x], 1);
 			if (s1[0] != '#' && s2[0] != '#' && !ft_strcmp(s1, s2) &&
-				ft_words_count(lem->arr[i]) != 1)
+				ft_words_count(lem->arr[i]) != 1 &&
+				ft_words_count(lem->arr[x]) != 1)
 				lem->error = 1;
 			free(s1);
 			free(s2);

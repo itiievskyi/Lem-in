@@ -31,6 +31,7 @@ SOURCES =	main.c\
 			solve.c\
 			clean.c\
 			print.c\
+			utils.c\
 
 SRCS = $(addprefix $(DIR_S)/,$(SOURCES))
 

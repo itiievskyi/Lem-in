@@ -77,10 +77,8 @@ void		print_str(t_lemin *lem, int i)
 	arr = lem->arr;
 	while (arr[i])
 	{
-		if (!ft_strcmp(arr[i], "##start") || !ft_strcmp(arr[i], "##end") ||
-			!(arr[i][0] == '#' && arr[i][1] == '#' && arr[i][2] != '#'))
-			lem->col == 0 ? ft_printf("%s\n", arr[i]) :
-				ft_printf(C_YELLOW "%s\n" C_RESET, arr[i]);
+		lem->col == 0 ? ft_printf("%s\n", arr[i]) :
+			ft_printf(C_YELLOW "%s\n" C_RESET, arr[i]);
 		i++;
 	}
 	i = 0;

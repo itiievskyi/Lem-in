@@ -40,25 +40,26 @@ void		check_coos(t_lemin *lem, int i, int x)
 int			check_pipes(t_lemin *lem, char *s1, int empty1, int empty2)
 {
 	char	**arr1;
-	t_slist	*temp;
+	t_slist	*t;
 
 	lem->error = 0;
-	temp = lem->list;
-	arr1 = ft_strsplit(s1, '-');
-	if (s1[0] != '#' && ft_words_count(s1) == 1 && ft_strchr(s1, '-'))
+	if ((arr1 = ft_strsplit(s1, '-')) && s1[0] != '#' &&
+		(t = lem->list) && ft_words_count(s1) == 1 && ft_strchr(s1, '-'))
 	{
-		while (!lem->error && temp)
+		while (!lem->error)
 		{
-			if (!ft_strequ(arr1[0], temp->room) &&
+			if (t && !ft_strequ(arr1[0], t->room) &&
 			!ft_strequ(arr1[0], lem->end) && !ft_strequ(arr1[0], lem->start))
 				empty1++;
-			if (!ft_strequ(arr1[1], temp->room) &&
+			if (t && !ft_strequ(arr1[1], t->room) &&
 			!ft_strequ(arr1[1], lem->end) && !ft_strequ(arr1[1], lem->start))
 				empty2++;
-			temp = temp->next;
-			if (ft_slist_length(lem->list) != 0 && (ft_slist_length(lem->list)
-			== empty1 || ft_slist_length(lem->list) == empty2))
+			if (ft_slist_length(lem->list) != 0 && (((ft_slist_length(lem->list)
+			== empty1 || ft_slist_length(lem->list) == empty2)) || (!t &&
+			!ft_strequ(arr1[0], lem->end) && !ft_strequ(arr1[0], lem->start))))
 				lem->error = 1;
+			if (!t || !(t = t->next))
+				break ;
 		}
 	}
 	clean_array(arr1);
@@ -114,7 +115,7 @@ void		check_lines(t_lemin *lem, int i, int words, int pipe)
 
 void		check_main(t_lemin *lem, int i, int room, int pipe)
 {
-	char	**temp;
+	char	**t;
 	char	*s;
 
 	while (!lem->error && (s = lem->arr[++i]))
@@ -128,13 +129,13 @@ void		check_main(t_lemin *lem, int i, int room, int pipe)
 		}
 		if (s && s[0] != '#' && ft_words_count(s) == 3 && ++room)
 		{
-			temp = ft_strsplit(s, ' ');
-			if (!ft_isdigit_str(temp[2]) || !ft_isdigit_str(temp[1]))
+			t = ft_strsplit(s, ' ');
+			if (!ft_isint_str(t[2]) || !ft_isint_str(t[1]))
 			{
 				cut_array(lem, i);
 				lem->error = 1;
 			}
-			clean_array(temp);
+			clean_array(t);
 		}
 		if (s && s[0] != '#' && ft_words_count(s) == 1 && ft_strchr(s, '-'))
 			pipe++;

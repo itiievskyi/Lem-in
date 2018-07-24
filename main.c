@@ -16,20 +16,21 @@ void		validate(t_lemin *lem, int i, int x)
 {
 	if (!lem)
 		error_exit(lem, 0);
-	while (lem->arr[i][0] == '#')
+	while (lem->arr[i] && lem->arr[i][0] == '#')
 		i++;
-	while ((lem->arr[i])[x] != '\0')
-		if (!ft_isdigit(lem->arr[i][x++]) || ft_atoi(lem->arr[i]) == 0)
+	while (lem->arr[i] && (lem->arr[i])[x] != '\0')
+		if (!ft_isdigit(lem->arr[i][x++]) || ft_atoi(lem->arr[i]) == 0 ||
+		!ft_isint_str(lem->arr[i]))
 			error_exit(lem, 0);
 	while ((lem->arr[++i]) &&
 			!(ft_words_count(lem->arr[i]) == 1 && ft_strchr(lem->arr[i], '-')))
 	{
-		if ((!ft_strcmp(lem->arr[i], "##start") ||
-			!ft_strcmp(lem->arr[i], "##end")) && !lem->arr[i + 1])
+		if ((ft_strequ(lem->arr[i], "##start") ||
+			ft_strequ(lem->arr[i], "##end")) && !lem->arr[i + 1])
 			error_exit(lem, 0);
-		if (!ft_strcmp(lem->arr[i], "##start") && lem->arr[i + 1][0] != '#')
+		if (ft_strequ(lem->arr[i], "##start") && lem->arr[i + 1][0] != '#')
 			lem->start = get_word(lem->arr[i + 1], 1);
-		else if (!ft_strcmp(lem->arr[i], "##end") && lem->arr[i + 1][0] != '#')
+		else if (ft_strequ(lem->arr[i], "##end") && lem->arr[i + 1][0] != '#')
 			lem->end = get_word(lem->arr[i + 1], 1);
 	}
 	check_main(lem, -1, 0, 0);
@@ -48,13 +49,13 @@ static void	write_string(t_lemin *lem)
 		lem->string[lem->index] = ch;
 		if (ch == '\n')
 		{
-			if (lem->string[lem->index - 1] == '\n')
+			if (lem->string[lem->index - 1] == '\n' || lem->index == 0)
 				break ;
 			lines++;
 		}
 		lem->index++;
 	}
-	if (!lem->index)
+	if (!lem->index || lines < 6)
 		error_exit(lem, 0);
 	lem->string[lem->index] = '\0';
 	lem->index++;
@@ -91,6 +92,7 @@ static void	init_struct(t_lemin *lem)
 	lem->done = 0;
 	lem->iter = 0;
 	lem->col = 0;
+	lem->cycle_error = 0;
 	ft_bzero(lem->ways, sizeof(lem->ways));
 }
 
@@ -104,7 +106,7 @@ int			main(int argc, char **argv)
 		lem->col = 1;
 	if (argc > 2 || (argc == 2 && !ft_strequ(argv[1], "color")))
 	{
-		ft_printf("ERROR: wrong argument!\nUse [color] to highlight output.");
+		ft_printf(C_RED "Wrong argument!\nUse [color] to highlight output.\n");
 		error_exit(lem, 0);
 	}
 	write_string(lem);
@@ -112,7 +114,7 @@ int			main(int argc, char **argv)
 	while (!lem->done)
 	{
 		bfs(lem, 0, 0);
-		if (lem->done)
+		if (lem->done || (lem->iter > 0 && ft_slist_length(lem->ways[0]) == 2))
 			break ;
 		find_way(lem);
 		reinit_list(lem);
