@@ -62,7 +62,6 @@ void		error_exit(t_lemin *lem, int x)
 		free(temp);
 	}
 	lem->col == 0 ? ft_printf("ERROR\n") : ft_printf(CB_RED "ERROR\n" C_RESET);
-		system("leaks lem-in");
 	exit(-1);
 }
 
